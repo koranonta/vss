@@ -1,0 +1,8 @@
+*.text
+/vss-admin-01/*
+/vss-admin-01/node_modules/*
+/vss-json-db/*
+/theme/*
+/sv/*
+/excel-export/*
+

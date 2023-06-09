@@ -22,7 +22,6 @@ if ($requestMethod == 'GET'):
 elseif ($requestMethod == 'POST'):
   $img = $_FILES['imgInput'];
   $imgName = isset($img) ? $img['name'] : $_POST['image'];
-
   $employee = array(
     'employeetypeid'         => $_POST['employeetypeid']
    ,'accountid'              => $_POST['accountid']
@@ -37,10 +36,10 @@ elseif ($requestMethod == 'POST'):
    ,'positionsalary'         => $_POST['positionsalary']
    ,'loginid'                => -1
   );
-
+  
   $id = $_POST['employeeid'];
   if (isset($id)):
-    $employee['employeeid'] = $id
+    $employee['employeeid'] = $id;
     $res    = $employees->update($employee);
     $okMsg  = 'Employee id [ ' . $id . ' ] updated';
     $errMsg = 'Unable to update Employee id [ ' . $id . ' ]';
