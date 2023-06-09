@@ -1,0 +1,87 @@
+File name : E:\KNN\sql-parser\config\gen.properties
+propertytypegroupScreen.js
+const propertytypegroupFields = [
+  { label: "Property Type Group Name"    , name: "propertytypegroupname"       , type: "text"     }
+ ,{ label: "Property Type Group Thai Name", name: "propertytypegroupthainame"   , type: "text"     }
+]
+
+propertytypeScreen.js
+const propertytypeFields = [
+  { label: "Property Type Group Id" , name: "propertytypegroupid"    , type: "number"   }
+ ,{ label: "Property Type Name"     , name: "propertytypename"       , type: "text"     }
+ ,{ label: "Property Type Thai Name", name: "propertytypethainame"   , type: "text"     }
+ ,{ label: "Alias"                  , name: "alias"                  , type: "text"     }
+ ,{ label: "Allowable Values"       , name: "allowablevalues"        , type: "text"     }
+]
+
+userScreen.js
+const userFields = [
+  { label: "Name"           , name: "name"           , type: "text"     }
+ ,{ label: "Password"       , name: "password"       , type: "text"     }
+ ,{ label: "Email"          , name: "email"          , type: "text"     }
+ ,{ label: "Phone"          , name: "phone"          , type: "text"     }
+ ,{ label: "Role Id"        , name: "roleid"         , type: "number"   }
+ ,{ label: "Image"          , name: "image"          , type: "text"     }
+]
+
+employeeScreen.js
+const employeeFields = [
+  { label: "Employee Type Id"       , name: "employeetypeid"         , type: "number"   }
+ ,{ label: "Account Id"             , name: "accountid"              , type: "text"     }
+ ,{ label: "Gender Id"              , name: "genderid"               , type: "number"   }
+ ,{ label: "First Name"             , name: "firstname"              , type: "text"     }
+ ,{ label: "Last Name"              , name: "lastname"               , type: "text"     }
+ ,{ label: "Identification Card Id" , name: "identificationcardid"   , type: "text"     }
+ ,{ label: "Birth Date"             , name: "birthdate"              , type: "date"     }
+ ,{ label: "Join Date"              , name: "joindate"               , type: "date"     }
+ ,{ label: "Image"                  , name: "image"                  , type: "text"     }
+ ,{ label: "Salary"                 , name: "salary"                 , type: "number"   }
+ ,{ label: "Position Salary"        , name: "positionsalary"         , type: "number"   }
+]
+
+addressScreen.js
+const addressFields = [
+  { label: "Employee Id" , name: "employeeid"  , type: "number"   }
+ ,{ label: "Address"     , name: "address"     , type: "text"     }
+ ,{ label: "Sub District", name: "subdistrict" , type: "text"     }
+ ,{ label: "District"    , name: "district"    , type: "text"     }
+ ,{ label: "Street"      , name: "street"      , type: "text"     }
+ ,{ label: "City"        , name: "city"        , type: "text"     }
+ ,{ label: "Province"    , name: "province"    , type: "text"     }
+ ,{ label: "Country"     , name: "country"     , type: "text"     }
+ ,{ label: "Post Code"   , name: "postcode"    , type: "text"     }
+]
+
+deductionScreen.js
+const deductionFields = [
+  { label: "Deduction Type Id"   , name: "deductiontypeid"     , type: "number"   }
+ ,{ label: "Deduction Name"      , name: "deductionname"       , type: "text"     }
+ ,{ label: "Deduction Thai Name" , name: "deductionthainame"   , type: "text"     }
+]
+
+deductionitemScreen.js
+const deductionitemFields = [
+  { label: "Deduction Id"      , name: "deductionid"       , type: "number"   }
+ ,{ label: "Property Type Id"  , name: "propertytypeid"    , type: "number"   }
+]
+
+payrollrunScreen.js
+const payrollrunFields = [
+  { label: "Payroll Run Date", name: "payrollrundate" , type: "date"     }
+]
+
+payrolltransactionScreen.js
+const payrolltransactionFields = [
+  { label: "Pay Roll Run Id"        , name: "payrollrunid"           , type: "number"   }
+ ,{ label: "Employee Id"            , name: "employeeid"             , type: "number"   }
+ ,{ label: "Deduction Id"           , name: "deductionid"            , type: "number"   }
+]
+
+payrolltransactionitemScreen.js
+const payrolltransactionitemFields = [
+  { label: "Payroll Transaction Id"     , name: "payrolltransactionid"       , type: "number"   }
+ ,{ label: "Property Type Id"           , name: "propertytypeid"             , type: "number"   }
+ ,{ label: "Amount"                     , name: "amount"                     , type: "number"   }
+]
+
+Done

@@ -1,0 +1,46 @@
+<html>
+<body>
+   <h3>JavaScript Math.round()</h3>
+   <p>format a number with two decimals</h3>
+   <p id="number">Number before formatting:<br></p>
+   <p id="result">Number after formatting:<br></p>
+   <script>
+   
+function formatNumber (num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+}   
+   
+      const number = 1000;
+      document.getElementById("number").innerHTML += number;
+      const fixedNum = Math.round(number*100.00)/100.00;
+      //var fval = 4;
+      //var fvalfloat = parseFloat(fval).fixed(2)
+      
+      //document.getElementById("result").innerHTML += fvalfloat;
+      //console.log(fvalfloat);
+      
+      
+var num1 = 1000;
+var a = (Math.round(num1 * 100) / 100).toFixed(2)
+console.log(a)
+
+console.log(formatNumber(a))
+
+a.toLocaleString('en-US', {maximumFractionDigits:2});
+console.log(a)
+//console.log (Number((Math.round(num1 * 100) / 100).toFixed(2)).toLocaleString() );
+
+
+//number2.toLocaleString('en-US', {maximumFractionDigits:2}); // "1,234.57"
+
+//Number(parseFloat(val).toFixed(2)).toLocaleString('en') 
+
+var num2 = "1.341";
+console.log ((Math.round(num2 * 100) / 100).toFixed(2));
+
+var num3 = "1.345";
+console.log ((Math.round(num3 * 100) / 100).toFixed(2));      
+      
+   </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+ReactJS Excel
+https://medium.com/@aalam-info-solutions-llp/how-to-excel-export-in-react-js-481b15b961e3
+https://dev.to/jasurkurbanov/how-to-export-data-to-excel-from-api-using-react-incl-custom-headers-5ded
+https://stackoverflow.com/questions/61316889/how-to-export-data-to-excel-using-react-libraries
+https://www.grapecity.com/blogs/how-to-import-export-excel-xlsx-using-react
+
+PHP Excel
+https://www.cloudways.com/blog/create-edit-excel-sheets-php
+https://phpfog.com/excel-spreadsheets-php/
+

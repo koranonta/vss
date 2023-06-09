@@ -1,0 +1,11 @@
+www.lapassionbkk.com/app/vss/backend/api/hello.php
+
+
+www.lapassionbkk.com/app/vss/backend/api/propertytypegroups.php
+
+www.lapassionbkk.com/app/vss/backend/api/propertytypes.php
+
+www.lapassionbkk.com/app/chvp/backend/api/address.php
+
+
+www.lapassionbkk.com/app/chvp/backend/api/users.php

@@ -1,0 +1,92 @@
+
+
+gender
+firstname
+lastname
+bankaccountid
+idcard
+salary
+birthdate
+joindate
+emptype
+
+
+ Address       VARCHAR(100) NOT NULL,
+ SubDistrict   VARCHAR(100) DEFAULT NULL,  
+ District      VARCHAR(100) DEFAULT NULL,  HatYai 
+ Street        VARCHAR(255) DEFAULT NULL,
+ City          VARCHAR(100) NOT NULL,
+ Province      VARCHAR(100) NOT NULL,      Songkhla
+ Country       VARCHAR(100) NOT NULL,
+ PostCode      VARCHAR(20)  NOT NULL,
+
+
+
+
+
+
+const fields = [
+  { label: 'ชื่อ :',           fieldName: 'name',    align: 'right', labelWidth: '20%', inputWidth: '70%' },
+  { label: 'รหัสผ่าน :',   fieldName: 'password' align: 'right', labelWidth: '20%', inputWidth: '70%' },
+  { label: 'อีเมล :',        fieldName: 'email',   align: 'right', labelWidth: '20%', inputWidth: '70%' },
+  { label: 'ชเบอร์โทร :', fieldName: 'phone',   align: 'right', labelWidth: '20%', inputWidth: '70%' }
+]
+
+
+
+               <tr key="1">
+                 <td width="20%" align="right"><label htmlFor="name" style={{...commonStyles.inputLabel}}>ชื่อ</label></td>
+                 <td width="70%">
+                   <input type="text" 
+                     style={{width: '100%'}}
+                     value={ _.isEmpty(buf) ? "" : buf.name}
+                     disabled={readOnly}
+                     onChange={handleChange} 
+                     required 
+                     
+                     name="name"
+                     id="name"/>                   
+                 </td>
+               </tr>
+
+               <tr key="2">
+                 <td><label htmlFor="password" style={{...commonStyles.inputLabel}}>รหัสผ่าน</label></td>
+                 <td>
+                 <input type="text" 
+                 value={ _.isEmpty(buf) ? "" : buf.password}
+                 disabled={readOnly}
+                 onChange={handleChange} 
+                 required 
+                  
+                 name="password"
+                 id="password"/>           
+                 </td>
+               </tr>
+
+               <tr key="3">
+                 <td><label htmlFor="email" style={{...commonStyles.inputLabel}}>อีเมล</label></td>
+                 <td>
+                 <input type="text" 
+                 value={ _.isEmpty(buf) ? "" : buf.email}
+                 disabled={readOnly}
+                 onChange={handleChange} 
+                 required 
+                 
+                 name="email"
+                 id="email"/>                 
+                 </td>
+               </tr>
+
+               <tr key="4">
+                 <td><label htmlFor="phone" style={{...commonStyles.inputLabel}}>เบอร์โทร</label></td>
+                 <td>
+                 <input type="text" 
+                value={_.isEmpty(buf) ? "" : buf.phone}
+                disabled={readOnly}
+                onChange={handleChange} 
+                required 
+               
+                name="phone" 
+                id="phone"/>                
+                 </td>
+               </tr> 

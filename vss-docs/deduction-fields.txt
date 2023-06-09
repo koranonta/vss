@@ -1,0 +1,74 @@
+//  Teacher
+amount: 645.93
+deductionItemId: 1
+deductionName: "providentfund"
+deductionThaiName: "เงินสมทบ 3%"
+value: "3%"
+
+amount: 0
+deductionItemId: 2
+deductionName: "funeral"
+deductionThaiName: "ชพค/ชพส"
+value: null
+
+amount: 0
+deductionItemId: 3
+deductionName: "cooperative"
+deductionThaiName: "สหกรณ์"
+value: null
+
+amount: 0
+deductionItemId: 4
+deductionName: "gsb loan"
+deductionThaiName: "ออมสิน"
+value: null
+
+amount: 0
+deductionItemId: 5
+deductionName: "private school loan"
+deductionThaiName: "เงินกู้ สช."
+value: null
+
+amount: 0
+deductionItemId: 6
+deductionName: "student loan"
+deductionThaiName: "กยศ."
+value: null
+
+amount: 0
+deductionItemId: 7
+deductionName: "others"
+deductionThaiName: "อื่นๆ"
+value: null
+
+amount: 0
+deductionItemId: 8
+deductionName: "school saving"
+deductionThaiName: "ออมทรัพย์"
+value: null
+
+//  Staff
+amount: 997.25
+deductionItemId: 9
+deductionName: "social security"
+deductionThaiName: "สปส 5%"
+value: "5%"
+
+amount: 0
+deductionItemId: 10
+deductionName: "school saving"
+deductionThaiName: "ออมทรัพย์"
+value: null
+
+amount: 0
+deductionItemId: 11
+deductionName: "others"
+deductionThaiName: "อื่นๆ"
+value: null
+
+amount: 0
+deductionItemId: 12
+deductionName: "guaranty"
+deductionThaiName: "ประกัน"
+value: null
+
