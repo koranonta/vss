@@ -52,7 +52,6 @@ const EmployeeList = ({ data, roles, itemsPerPage, setItemsPerPage, startFrom })
       const empSet = new Set()
       const empTypeList = []
       data.forEach(item => {
-        console.log()
         if (!empSet.has(item.employeetypethainame)) {
           empSet.add(item.employeetypethainame)
           empTypeList.push({ title: item.employeetypethainame, id: item.employeetypeid })
@@ -265,6 +264,16 @@ const EmployeeList = ({ data, roles, itemsPerPage, setItemsPerPage, startFrom })
           <div className="message-body has-text-centered">No results</div>
         </div>
       }
+
+       <EmployeeDlg 
+         item={selItem}
+         roles={roles}
+         mode={mode}
+         width={'500px'}
+         open={openDlg}
+         setOpen={setOpenDlg}
+         actionHandler={userHandler}
+       />         
      </>
     );    
 }

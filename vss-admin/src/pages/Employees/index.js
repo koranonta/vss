@@ -16,9 +16,11 @@ const Employees = () => {
       try {
         setLoadingMessage("Loading employees...")
         const resp = await ApiService.getEmployees()
-        //console.log(resp.data.response.data)
-        if (resp.status = 200)
+        
+        if (resp.status = 200) {
           setEmplyees(resp.data.response.data)
+          console.log(resp.data.response.data)
+        }
       } catch (e) {
         setEmplyees([])
         console.log(e)
