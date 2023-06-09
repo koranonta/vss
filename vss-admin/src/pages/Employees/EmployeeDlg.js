@@ -193,6 +193,8 @@ const EmployeeDlg = (props) => {
               </Grid>
 
               <Grid item xs={4}>
+              <label>ประเภท</label>
+              <br/>
               <select id="roleid" 
                 placeholder="Title"
                 value={_.isEmpty(buf) ? "" : +buf.roleid}
@@ -207,6 +209,7 @@ const EmployeeDlg = (props) => {
               </Grid>
 
               <Grid item xs={4}>
+              <label>เงินเดือน</label>
               <input type="number" 
                            style={{width: '100%', textAlign: 'right'}}
                            placeholder="เงินเดือน"
@@ -216,6 +219,7 @@ const EmployeeDlg = (props) => {
                            id="fname"/>
               </Grid>
               <Grid item xs={4}>
+              <label>ค่าตำแหน่ง</label>
               <input type="number" 
                            style={{width: '100%', textAlign: 'right'}}
                            placeholder="ค่าตำแหน่ง"
@@ -228,41 +232,84 @@ const EmployeeDlg = (props) => {
               </OutlinedDiv>  
                
               <div className="mt-3">
-                <OutlinedDiv label="Address" width="100%">
+                <OutlinedDiv label="ที่อยู่" width="100%">
 
-                <Grid container spacing={3}>
-              <Grid item xs={3}>
-                 Title
+                <Grid container spacing={3} rowSpacing={0.5}>
+              <Grid item xs={12}>
+                 <label>ที่อยู่</label>
+                 <input type="text" 
+                           style={{width: '100%'}}
+                           autoCapitalize={false} 
+                           required                      
+                           name="fname"
+                           id="fname"/>                 
               </Grid>
-              <Grid item xs={3}>
-                 First Name
-              </Grid>
-              <Grid item xs={3}>
-                 Last Name
-              </Grid>
-              <Grid item xs={3}>
-                 EmpType
-              </Grid>
-              <Grid item xs={6}>
-                   Bank account
-              </Grid>
-              <Grid item xs={6}>
-                  Id card
-              </Grid>
-
-              <Grid item xs={6}>
-                  Birth date
-              </Grid>
-              <Grid item xs={6}>
-                  Employment start date
+              <Grid item xs={12}>
+              <label>ถนน</label>
+              <input type="text" 
+                           style={{width: '100%'}}
+                           autoCapitalize={false} 
+                           required                      
+                           name="fname"
+                           id="fname"/> 
               </Grid>
 
-              <Grid item xs={6}>
-                  Salary
+              <Grid item xs={4}>
+                <label>หมู่ที่</label>
+                <input type="text" 
+                           style={{width: '100%'}}
+                           autoCapitalize={false} 
+                           required                      
+                           name="fname"
+                           id="fname"/> 
               </Grid>
-              <Grid item xs={6}>
-                  Base salary
+              <Grid item xs={4}>
+              <label>ตำบล</label>
+                <input type="text" 
+                           style={{width: '100%'}}
+                           autoCapitalize={false} 
+                           required                      
+                           name="fname"
+                           id="fname"/> 
               </Grid>
+              <Grid item xs={4}>
+              <label>อำเภอ</label>
+                <input type="text" 
+                           style={{width: '100%'}}
+                           autoCapitalize={false} 
+                           required                      
+                           name="fname"
+                           id="fname"/> 
+              </Grid>
+              <Grid item xs={4}>
+              <label>จังหวัด</label>
+              <input type="text" 
+                           style={{width: '100%'}}
+                           autoCapitalize={false} 
+                           required                      
+                           name="fname"
+                           id="fname"/> 
+              </Grid>
+
+              <Grid item xs={4}>
+              <label>ประเทศ</label>
+              <input type="text" 
+                           style={{width: '100%'}}
+                           autoCapitalize={false} 
+                           required                      
+                           name="fname"
+                           id="fname"/> 
+              </Grid>
+              <Grid item xs={4}>
+              <label>รหัสไปรษรีย์</label>
+              <input type="text" 
+                           style={{width: '100%'}}
+                           autoCapitalize={false} 
+                           required                      
+                           name="fname"
+                           id="fname"/> 
+              </Grid>
+
               </Grid>
 
                 </OutlinedDiv>
