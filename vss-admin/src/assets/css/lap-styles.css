@@ -1,0 +1,68 @@
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  border: 1px solid grey;
+  background-color: #e6d5a9;
+}
+
+.seloptionbackground {
+  background-color: white;
+}
+
+/* css variables */
+:root {
+  --primary: #d84e0f;
+  --white: #fff;
+}
+
+html,
+body {
+  height: 100%;
+}
+.container {
+  height: 100%;
+}
+.card {
+  width: 400px;
+  height: 350px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.card-header > h3 {
+  color: var(--white);
+}
+.input-group > span {
+  background-color: var(--primary);
+  border: 0;
+  color: var(--white);
+}
+input:focus {
+  outline: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
+}
+.registration_btn {
+  color: var(--white);
+  background-color: var(--primary);
+}
+.registration_btn:hover {
+  color: #000;
+  background-color: var(--white);
+}
+.signup > a,
+.signin > a {
+  color: var(--primary);
+}
+.signin_card {
+  height: 300px;
+}
+
+.pagination_btn {
+  border: "solid 1px white"
+}
+
+.filter {
+  border: "solid 1px green"
+}

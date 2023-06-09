@@ -1,0 +1,14 @@
+Employee
+  Add, edit delete
+
+User  
+  Add, edit delete
+
+Payroll
+  Align deduction column
+  Save to database
+  Gen Excel sheet
+
+Configuration
+  Reference setup
+  Deduction setup  

@@ -1,0 +1,22 @@
+npx create-react-app my-app
+
+
+
+https://contactmentor.com/login-form-react-js-code/
+https://marketsplash.com/tutorials/react-js/how-to-create-a-login-page-in-react-js/
+https://www.geeksforgeeks.org/react-hook-form-create-basic-reactjs-registration-and-login-form/
+https://www.digitalocean.com/community/tutorials/how-to-add-login-authentication-to-react-applications
+https://supertokens.com/blog/building-a-login-screen-with-react-and-bootstrap
+https://www.positronx.io/build-react-login-sign-up-ui-template-with-bootstrap-4/
+https://mdbootstrap.com/docs/react/extended/login-form/
+https://www.makeuseof.com/redirect-user-after-login-react/#:~:text=Redirect%20User%20to%20Login%20Page%20Using%20Navigate&text=Import%20Navigate%20from%20react%2Drouter,follows%20to%20redirect%20unauthenticated%20users.
+https://www.simplilearn.com/tutorials/reactjs-tutorial/login-page-in-reactjs
+https://karnyong.medium.com/%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%99-react-%E0%B8%97%E0%B8%B3%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2-login-%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%81%E0%B9%83%E0%B8%8A%E0%B9%89-api-%E0%B8%87%E0%B9%88%E0%B8%B2%E0%B8%A2%E0%B8%AA%E0%B8%B8%E0%B8%94%E0%B9%86-e8f2fd753345
+https://www.codingninjas.com/codestudio/library/login-page-in-react-js
+https://sst.dev/chapters/create-a-login-page.html
+
+https://sst.dev/chapters/create-a-login-page.html
+
+
+PHP
+https://www.positronx.io/react-js/
