@@ -1,0 +1,26 @@
+npx create-react-app excel-export
+cd excel-export
+npm start
+
+npm install sheetjs-style
+npm install file-saver
+
+
+Excelexport.js
+
+import * as FileServer from 'file-sercer'
+import XLSX from 'sheetjs-style'
+
+https://medium.com/@aalam-info-solutions-llp/how-to-excel-export-in-react-js-481b15b961e3
+
+
+
+
+
+npx create-react-app vss-admin
+cd vss-admin
+npm start
+
+
+
+npx create-react-app demo

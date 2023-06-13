@@ -44,17 +44,14 @@ elseif ($requestMethod == 'POST'):
   );
   
   $id = $_POST['userid'];
-  $mode = "none";
   $userId = -1;
   if (isset($id)):
-    $mode = "edit";
     $user["userid"] = $id;
     $userId = $id;
     $res    = $users->update($user);
 	  $okMsg  = "User id [ " . $id . " ] updated";
 	  $errMsg = "Unable to update user id [ " . $id . " ]";
   else:
-    $mode   = "add";
     $res    = $users->add($user);
 	  $okMsg  = "New user added";
 	  $errMsg = "Unable to add user";	
@@ -71,8 +68,6 @@ elseif ($requestMethod == 'POST'):
   else:
     Response::error($errMsg);
   endif;  
-
-
   
 // put("/users?id=<userId>", <body>)  
 elseif ($requestMethod == 'PUT'):

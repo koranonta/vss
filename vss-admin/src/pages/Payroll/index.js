@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import moment from 'moment';
+
 import ApiService from '../../services/ApiService'
 import PageLoading from '../../components/PageLoading'
 import PayrollList from './PayrollList'
-import AppConfig from '../../config/AppConfig';
 import Util from '../../util/Util';
-import moment from 'moment';
+import Constants from '../../util/Constants';
+
 const Payroll = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [loadingMessage, setLoadingMessage] = useState()
@@ -20,19 +22,19 @@ const Payroll = () => {
         setLoadingMessage("Loading deductions...")
         const resp1 = await ApiService.getDeductionRules()
         let deductionList = []
-        if (resp1.status = 200)
+        if (resp1.status === Constants.K_HTTP_OK)
           deductionList = resp1.data.response.data
         //console.log(deductionList)
         setLoadingMessage("Loading employees...")
         const resp = await ApiService.getEmployees()
         //console.log(resp.data)
-        if (resp.status = 200) {  
+        if (resp.status === Constants.K_HTTP_OK) {  
           let deductionId = null
           let totalDeduction
           let amountToPay
           const empList = resp.data.response.data.map(elem => {
             //deductionId = (+elem.employeetypeid === K_TEACHER_TYPE) ? K_TEACHER_DEDUCTION : K_STAFF_DEDUCTION
-            deductionId = AppConfig.K_DEDUCTION_MAP.get(+elem.employeetypeid)
+            deductionId = Constants.K_DEDUCTION_MAP.get(+elem.employeetypeid)
             totalDeduction = 0.0
             let deductionItems = []
             deductionList.forEach (item => {

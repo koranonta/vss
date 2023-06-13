@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import { IconButton } from '@material-ui/core';
 import _ from 'lodash';
@@ -26,7 +26,7 @@ const columns = [
   { label: 'จัดการ', sortKey: '', align: 'center', width:'10%' },
 ];
 
-const EmployeeList = ({ data, roles, itemsPerPage, setItemsPerPage, startFrom }) => {
+const EmployeeList = ({ data, employeeTypes, genderTypes, itemsPerPage, setItemsPerPage, startFrom }) => {
   const [sortByKey, setSortByKey] = useState('id')
   const [order, setOrder] = useState('asc')
   const [openDlg, setOpenDlg] = useState(false)
@@ -34,6 +34,21 @@ const EmployeeList = ({ data, roles, itemsPerPage, setItemsPerPage, startFrom })
   const [mode, setMode] = useState()
   const [empTypes, setEmpTypes] = useState()
   const [selEmpType, setSelEmpType] = useState()
+
+
+  const testAdd = {
+    'employeetypeid': 3
+   ,'accountid': '123-456-789-10'
+   ,'genderid': 10
+   ,'firstname': 'kora'
+   ,'lastname': 'nonta'
+   ,'identificationcardid': '2245-44224-2244'
+   ,'birthdate': '1966-04-10'
+   ,'joindate': '2010-01-01'
+   ,'image': ''
+   ,'salary': 10000
+   ,'positionsalary':0
+  }
 
   const { 
     slicedData, 
@@ -84,56 +99,93 @@ const EmployeeList = ({ data, roles, itemsPerPage, setItemsPerPage, startFrom })
       setOpenDlg(true)
     }
 
-    const userHandler = (mode, user) => {
+    const getAddress = (employee) => ({
+      addressid: employee.addressid,
+      address: employee.address,
+      street: employee.street,
+      subdistrict: employee.subdistrict,
+      district: employee.district,
+      province: employee.province,
+      city: employee.city,
+      country: employee.country,
+      postcode: employee.postcode
+    })
 
-/*      
-      console.log("in User Handler")
+    const employeeHandler = (mode, employee) => {
+      console.log("in Employee Handler")
       console.log("action", mode)
-      console.log("user", user)
+      console.log("employee", employee)
       if (mode === "add" || mode === "edit") {
         const formData = new FormData()
-        formData.append('imgInput', user.imageUrl);
-        formData.append('name', user.name);
-        formData.append('password', user.password);
-        formData.append('email', user.email);
-        formData.append('phone', user.phone);
-        formData.append('roleid', user.roleid);
+        formData.append('imgInput', employee.imageUrl);
+        formData.append('employeetypeid', employee.employeetypeid);
+        formData.append('accountid', employee.accountid);
+        formData.append('genderid', employee.genderid);
+        formData.append('firstname', employee.firstname);
+        formData.append('lastname', employee.lastname);
+        formData.append('identificationcardid', employee.identificationcardid);
+        formData.append('birthdate', employee.birthdate);
+        formData.append('joindate', employee.joindate);
+        formData.append('salary', employee.salary);
+        formData.append('positionsalary', employee.positionsalary);
+
         if (mode === "edit") 
-          formData.append('userid', +user.userid);
-        let image = user.image          
-        if (!_.isEmpty(user.imageUrl)) {
-          image = user.imageUrl.image.name
+          formData.append('employeeid', +employee.employeeid);
+        let image = employee.image          
+        if (!_.isEmpty(employee.imageUrl)) {
+          image = employee.imageUrl.image.name
         }
         formData.append("image", image);
-        ApiService.addUser(formData)
+        ApiService.addEmployee(formData)
         .then(resp => {
           console.log(resp.data)
           if ( resp.data.status ) {
-            const respUser = resp.data.response.user[0]
+            console.log(resp.data.response)
+            const respEmp = resp.data.response.employee[0]
+
+            //  Handle address
+            let respAddr = null
+            if (!_.isEmpty(employee.address)) {
+              const address = getAddress(employee)
+              ApiService.addAddress(address)
+              .then (resp1 => {
+                console.log(resp1.data)
+                if ( resp1.data.status ) {
+                  console.log(resp1.data.response)
+                  const respAddr = resp1.data.response.address[0]
+                }
+              })
+              .catch(e1 => console.log(e1))
+            }
+
+            console.log("respAddr", respAddr)
+            console.log(respEmp)
+
             const copiedData = (mode === "edit") 
-              ? filteredData.map(elem => +elem.userid === +respUser.userid ? respUser : elem)
-              : [...filteredData, respUser];
-            const sortedData = Util.sortData(copiedData, 'userid', 'asc');  
-            setFilteredData(sortedData)
-            
+              ? filteredData.map(elem => +elem.employeeid === +respEmp.employeeid ? {...respEmp} : elem)
+              : [...filteredData, respEmp];
+            const sortedData = Util.sortData(copiedData, 'employeeid', 'asc');  
+            setFilteredData(sortedData)            
+            if (mode === "add")
+              setCurrentPage(pages)
           }
         })
         .catch(e => console.log(e))        
       }
       else if (mode === "delete") {            
-        ApiService.deleteUser(user.userid)
+        ApiService.deleteEmployee(employee.employeeid)
         .then (resp => {
           console.log(resp)
           if ( resp.data.status ) {
             const copiedData = [...filteredData];
             const filtered = copiedData.filter(
-              elem => +elem.userid !== +user.userid ? elem : null)
+              elem => +elem.employeeid !== +employee.employeeid ? elem : null)
             setFilteredData(filtered)
           }
         })
         .catch(e => console.log(e))
       }
-*/      
+
     }    
 
     const handleEmpType = (e) => {
@@ -168,7 +220,7 @@ const EmployeeList = ({ data, roles, itemsPerPage, setItemsPerPage, startFrom })
         <div className="row">
           <div className="col-md-2">
             <h1 className={classes.title}>พนักงาน</h1>
-            <IconButton onClick={() => {openPopup({}, 'add')}}>
+            <IconButton onClick={() => {openPopup(testAdd, 'add')}}>
               <img src={images.addIcon} alt="เพิ่มพนักงาน" width="40" title="เพิ่มพนักงาน"/>
             </IconButton>        
           </div>
@@ -212,8 +264,8 @@ const EmployeeList = ({ data, roles, itemsPerPage, setItemsPerPage, startFrom })
               </tr>
             </thead>
             <tbody>
-              {slicedData.map(item => (
-                <tr key={item.employeeid} style={{ paddingBottom: '1rem'}}>
+              {slicedData.map((item, index) => (
+                <tr key={index} style={{ paddingBottom: '1rem'}}>
                   <td style={{...commonStyles.tableRow, textAlign: 'left', width: '5%'}}>{Util.zeroPad(item.employeeid, 3)}</td>
                   <td style={{...commonStyles.tableRow, width: '20%'}}>{Util.concatName(item)}</td>
                   <td style={{...commonStyles.tableRow, width: '10%'}}>{item.employeetypethainame}</td>
@@ -267,12 +319,13 @@ const EmployeeList = ({ data, roles, itemsPerPage, setItemsPerPage, startFrom })
 
        <EmployeeDlg 
          item={selItem}
-         roles={roles}
+         employeeTypes={employeeTypes}
+         genderTypes={genderTypes}
          mode={mode}
          width={'500px'}
          open={openDlg}
          setOpen={setOpenDlg}
-         actionHandler={userHandler}
+         actionHandler={employeeHandler}
        />         
      </>
     );    

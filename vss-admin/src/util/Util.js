@@ -99,6 +99,14 @@ const toThaiMode = (mode) => {
   return thaiMode
 }
 
+const propertiesToThaiOptionSelector = (properties) => {
+  const res = []
+  properties.forEach(item => 
+    res.push ({ id: item.propertytypeid, title: item.propertytypethainame})
+  )
+  return res;
+}
+
 const thaimonths = [
   'มกราคม',
   'กุมภาพันธ์',
@@ -137,6 +145,7 @@ const Util = {
   toThaiYear,
   thaimonths,
   toThaiMode,
+  propertiesToThaiOptionSelector,
 }
 
 export default Util

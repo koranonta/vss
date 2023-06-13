@@ -33,7 +33,7 @@ elseif ($requestMethod == 'POST'):
   );
 
   $id = $_POST['addressid'];
-  if (isset($id)):
+  if (isset($id) && $id != -1):
     $address['addressid'] = $id;
     $res    = $addresses->update($address);
     $okMsg  = 'Address id [ ' . $id . ' ] updated';

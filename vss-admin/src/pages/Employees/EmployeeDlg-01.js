@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react'
+import React, {useState, useEffect, useRef } from 'react'
 import _ from 'lodash'
 import { Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
@@ -25,33 +25,45 @@ const fields = [
 const EmployeeDlg = (props) => {
   const {item, employeeTypes, genderTypes, mode, open, setOpen, width, actionHandler } = props
   const [image, setImage] = useState()  
-  const [buf, setBuf] = useState({})
+  const [buf, setBuf] = useAsyncState(item)
   const [readOnly, setReadOnly] = useState()
+  const formRef = useRef()
 
   const classes = AppStyles()
+  
+
+  const loadItem = async () => {
+    const curBuf = await setBuf(item)
+  }
 
   useEffect(() => {  
+
     setReadOnly (mode === 'delete')    
+    setBuf({})
     if (mode === 'add') {      
-      setBuf(item)
       setImage("")
     }
     else if (!_.isEmpty(item)) {
-      setBuf(item)
+      //const temp = {...item}
+      //console.log(temp)
+      //setBuf(temp)
+      loadItem()
       if (!_.isEmpty(item.image)) 
         setImage(AppConfig.K_AVATAR_DIR + `${item.image}`)
+      console.log(buf)
     }
   },[item, mode])
 
   const onOk = (e) => {
     e.preventDefault()
-    console.log(buf)
     actionHandler(mode, buf)
+    formRef.current.reset();
     setOpen(false)
   }
   
   const onCancel = (e) => {  
     e.preventDefault()
+    formRef.current.reset();
     setOpen(false)  
   }  
 
@@ -73,7 +85,7 @@ const EmployeeDlg = (props) => {
        <div style={{width}}>
          <div style={{ display: 'flex' }}>
            <Typography variant="h6" component="div" className={classes.orderDetailHeader}>
-             {Util.toThaiMode(mode)}พนักงาน
+             {Util.capitalize(mode)} User
            </Typography>
            <div>
             <label htmlFor="upload-button">
@@ -99,7 +111,7 @@ const EmployeeDlg = (props) => {
           </div>
         </div>       
 
-         <form>
+         <form ref={formRef}>           
            <div style={{flexGrow: 1}}>
 
            <OutlinedDiv label="Employee" width="100%">
@@ -127,8 +139,8 @@ const EmployeeDlg = (props) => {
                            autoCapitalize={false} 
                            onChange={handleChange} 
                            required                      
-                           name="firstname"
-                           id="firstname"/>                         
+                           name="fname"
+                           id="fname"/>                         
               </Grid>
               <Grid item xs={5}>
               <label>นามสกุล</label>
@@ -139,8 +151,8 @@ const EmployeeDlg = (props) => {
                            autoCapitalize={false} 
                            onChange={handleChange} 
                            required                      
-                           name="lastname"
-                           id="lastname"/>
+                           name="lname"
+                           id="lname"/>
               </Grid>
               <Grid item xs={6}>
               <label>เลขบัญชีธนาคาร</label>
@@ -163,8 +175,8 @@ const EmployeeDlg = (props) => {
                            autoCapitalize={false} 
                            onChange={handleChange} 
                            required                      
-                           name="identificationcardid"
-                           id="identificationcardid"/>
+                           name="cardid"
+                           id="cardid"/>
               </Grid>
 
               <Grid item xs={6}>
@@ -176,8 +188,8 @@ const EmployeeDlg = (props) => {
                            autoCapitalize={false} 
                            onChange={handleChange} 
                            required                      
-                           name="birthdate"
-                           id="birthdate"/>
+                           name="bdate"
+                           id="bdate"/>
               </Grid>
               <Grid item xs={6}>
               <label>วันเริ่มงาน</label>
@@ -188,20 +200,20 @@ const EmployeeDlg = (props) => {
                            autoCapitalize={false} 
                            onChange={handleChange} 
                            required                      
-                           name="joindate"
-                           id="joindate"/>
+                           name="jdate"
+                           id="jdate"/>
                           
               </Grid>
 
               <Grid item xs={4}>
               <label>ประเภท</label>
               <br/>
-              <select id="employeetypeid" 
+              <select id="emptypeid" 
                 placeholder="Title"
                 value={_.isEmpty(buf) ? "" : +buf.employeetypeid}
                 disabled={readOnly === true}
                 onChange={handleChange} 
-                name="employeetypeid" 
+                name="emptypeid" 
                 className={`col selectpicker `} >                
                   {employeeTypes.map ((item, index) => 
                     <option  key={index} value={item.id}>{item.title}</option>)}
@@ -228,6 +240,7 @@ const EmployeeDlg = (props) => {
                            style={{width: '100%', textAlign: 'right'}}
                            placeholder="ค่าตำแหน่ง"
                            value={_.isEmpty(buf) ? "" : +buf.positionsalary }
+                           autoCapitalize={false} 
                            onChange={handleChange} 
                            required                      
                            name="possalary"
@@ -244,10 +257,11 @@ const EmployeeDlg = (props) => {
                        <input type="text" 
                            style={{width: '100%'}}
                            value={_.isEmpty(buf) ? "" : buf.address }
+                           autoCapitalize={false} 
                            onChange={handleChange} 
                            required                      
-                           name="address"
-                           id="address"/>                 
+                           name="fname"
+                           id="fname"/>                 
                       </Grid>
 
                       <Grid item xs={12}>
@@ -255,10 +269,11 @@ const EmployeeDlg = (props) => {
                         <input type="text" 
                            style={{width: '100%'}}
                            value={_.isEmpty(buf) ? "" : buf.street }
+                           autoCapitalize={false} 
                            onChange={handleChange} 
                            required                      
-                           name="street"
-                           id="street"/> 
+                           name="fname"
+                           id="fname"/> 
                       </Grid>      
 
                       <Grid item xs={4}>
@@ -266,29 +281,34 @@ const EmployeeDlg = (props) => {
                         <input type="text" 
                            style={{width: '100%'}}
                            value={_.isEmpty(buf) ? "" : buf.subdistrict }
+                           autoCapitalize={false} 
                            onChange={handleChange} 
-                           name="subdistrict"
-                           id="subdistrict"/> 
+                           name="fname"
+                           id="fname"/> 
                       </Grid>                        
+
 
                       <Grid item xs={4}>
                         <label>ตำบล</label>
                         <input type="text" 
                            style={{width: '100%'}}
                            value={_.isEmpty(buf) ? "" : buf.district }
+                           autoCapitalize={false} 
                            onChange={handleChange} 
-                           name="district"
-                           id="district"/> 
+                           name="fname"
+                           id="fname"/> 
                       </Grid>                    
+
 
                       <Grid item xs={4}>
                         <label>อำเภอ</label>
                         <input type="text" 
                            style={{width: '100%'}}
                            value={_.isEmpty(buf) ? "" : buf.province }
+                           autoCapitalize={false} 
                            onChange={handleChange} 
-                           name="province"
-                           id="province"/> 
+                           name="fname"
+                           id="fname"/> 
                       </Grid>                      
 
                       <Grid item xs={4}>
@@ -296,10 +316,11 @@ const EmployeeDlg = (props) => {
                         <input type="text" 
                            style={{width: '100%'}}
                            value={_.isEmpty(buf) ? "" : buf.city }
+                           autoCapitalize={false} 
                            onChange={handleChange} 
                            required                      
-                           name="city"
-                           id="city"/> 
+                           name="fname"
+                           id="fname"/> 
                       </Grid>
 
                       <Grid item xs={4}>
@@ -307,31 +328,33 @@ const EmployeeDlg = (props) => {
                         <input type="text" 
                            style={{width: '100%'}}
                            value={_.isEmpty(buf) ? "" : buf.country }
+                           autoCapitalize={false} 
                            onChange={handleChange} 
                            required                      
-                           name="country"
-                           id="country"/> 
+                           name="fname"
+                           id="fname"/> 
                       </Grid>
                       <Grid item xs={4}>
                         <label>รหัสไปรษรีย์</label>
                         <input type="text" 
                            style={{width: '100%'}}
                            value={_.isEmpty(buf) ? "" : buf.postcode }
+                           autoCapitalize={false} 
                            onChange={handleChange} 
                            required                      
-                           name="postcode"
-                           id="postcode"/> 
+                           name="fname"
+                           id="fname"/> 
                       </Grid>                      
 
                   </Grid>
                 </OutlinedDiv>
               </div>
+               
 
-              
            </div>
            <div className={`mt-3 mb-3 ${classes.rightButtonPanel}`}>
+             <button onClick={e => onCancel(e)} name="cancel" className={`mr-2 ${classes.pillButtonPale}`} style={{width: '100px'}}>Close</button>
              <button onClick={e => onOk(e)} name="submit" className={classes.pillButton} style={{width: '100px'}}>Save</button>
-             <button onClick={e => onCancel(e)} name="cancel" className={`mr-2 ${classes.pillButtonPale}`} style={{width: '100px'}}>Cancel</button>
            </div>
        
          </form>    
@@ -347,103 +370,15 @@ export default EmployeeDlg
 
 
        
-              <div className="mt-3">
-                <OutlinedDiv label="ที่อยู่" width="100%">
-                  <Grid container spacing={3} rowSpacing={0.5}>
-                    <Grid item xs={12}>
-                       <label>ที่อยู่</label>
-                       <input type="text" 
-                           style={{width: '100%'}}
-                           value={_.isEmpty(buf) ? "" : buf.address }
-                           autoCapitalize={false} 
-                           onChange={handleChange} 
-                           required                      
-                           name="address"
-                           id="address"/>                 
-                      </Grid>
-
-                      <Grid item xs={12}>
-                        <label>ถนน</label>
-                        <input type="text" 
-                           style={{width: '100%'}}
-                           value={_.isEmpty(buf) ? "" : buf.street }
-                           autoCapitalize={false} 
-                           onChange={handleChange} 
-                           required                      
-                           name="street"
-                           id="street"/> 
-                      </Grid>      
-
-                      <Grid item xs={4}>
-                        <label>หมู่</label>
-                        <input type="text" 
-                           style={{width: '100%'}}
-                           value={_.isEmpty(buf) ? "" : buf.subdistrict }
-                           autoCapitalize={false} 
-                           onChange={handleChange} 
-                           name="subdistrict"
-                           id="subdistrict"/> 
-                      </Grid>                        
 
 
-                      <Grid item xs={4}>
-                        <label>ตำบล</label>
-                        <input type="text" 
-                           style={{width: '100%'}}
-                           value={_.isEmpty(buf) ? "" : buf.district }
-                           autoCapitalize={false} 
-                           onChange={handleChange} 
-                           name="district"
-                           id="district"/> 
-                      </Grid>                    
+               
 
-                      <Grid item xs={4}>
-                        <label>อำเภอ</label>
-                        <input type="text" 
-                           style={{width: '100%'}}
-                           value={_.isEmpty(buf) ? "" : buf.province }
-                           autoCapitalize={false} 
-                           onChange={handleChange} 
-                           name="province"
-                           id="province"/> 
-                      </Grid>                      
 
-                      <Grid item xs={4}>
-                        <label>จังหวัด</label>
-                        <input type="text" 
-                           style={{width: '100%'}}
-                           value={_.isEmpty(buf) ? "" : buf.city }
-                           autoCapitalize={false} 
-                           onChange={handleChange} 
-                           required                      
-                           name="city"
-                           id="city"/> 
-                      </Grid>
 
-                      <Grid item xs={4}>
-                        <label>ประเทศ</label>
-                        <input type="text" 
-                           style={{width: '100%'}}
-                           value={_.isEmpty(buf) ? "" : buf.country }
-                           autoCapitalize={false} 
-                           onChange={handleChange} 
-                           required                      
-                           name="country"
-                           id="country"/> 
-                      </Grid>
-                      <Grid item xs={4}>
-                        <label>รหัสไปรษรีย์</label>
-                        <input type="text" 
-                           style={{width: '100%'}}
-                           value={_.isEmpty(buf) ? "" : buf.postcode }
-                           autoCapitalize={false} 
-                           onChange={handleChange} 
-                           required                      
-                           name="postcode"
-                           id="postcode"/> 
-                      </Grid>                      
 
-                  </Grid>
+              </Grid>
+
                 </OutlinedDiv>
               </div>
 

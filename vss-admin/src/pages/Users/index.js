@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import AppConfig from '../../config/AppConfig';
 import ApiService from '../../services/ApiService'
 import PageLoading from '../../components/PageLoading'
 import UserList from './UserList'
+import Constants from '../../util/Constants';
 
 const Users = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -17,19 +17,19 @@ const Users = () => {
       try {
         setLoadingMessage("Loading users...")
         //  Load user roles
-        const resp1 = await ApiService.getPropertiesByGroup(AppConfig.K_USER_ROLES_TYPE)
+        const resp1 = await ApiService.getPropertiesByGroup(Constants.K_USER_ROLES_TYPE)
         let roleTypes = []
-        if (resp1.data.status) {
+        if (resp1.status === Constants.K_HTTP_OK) {
           roleTypes = resp1.data.response.data
           setRoles(roleTypes.map(item => ({ title: item.propertytypethainame, id: +item.propertytypeid})))        
         }
         //  Load users
         const resp = await ApiService.getUsers()
-        if (resp.data.status) 
+        if (resp.status === Constants.K_HTTP_OK) 
           setUsers(resp.data.response.data)
 
-        console.log(resp.data.response.data)  
-        console.log(roles)          
+        //console.log(resp.data.response.data)  
+        //console.log(roles)          
       } catch (e) {
         setUsers([])
         console.log(e)

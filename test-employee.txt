@@ -1,0 +1,4 @@
+DELETE FROM `Employees` WHERE EmployeeId >= 163;
+
+
+SELECT * FROM `Employees` WHERE EmployeeId > 160;

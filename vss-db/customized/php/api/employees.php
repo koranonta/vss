@@ -48,7 +48,12 @@ elseif ($requestMethod == 'POST'):
     $okMsg  = 'New employee added';
     $errMsg = 'Unable to add employee';
   endif;
-
+  
+  //  Save image
+  if (isset($img['name']) && $img['error'] == 0):
+    $imgHandler->saveImage($img);
+  endif;
+  
   if ($res):
     $response = array( 'res' => $okMsg, 'employee' => $res );
     Response::success($response);
@@ -56,10 +61,6 @@ elseif ($requestMethod == 'POST'):
     Response::error($errMsg);
   endif;
 
-  //  Save image
-  if (isset($img['name']) && $img['error'] == 0):
-    $imgHandler->saveImage($img);
-  endif;
 
 elseif ($requestMethod == 'DELETE'):
   $id = getId();
