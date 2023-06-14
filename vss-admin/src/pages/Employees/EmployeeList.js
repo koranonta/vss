@@ -35,21 +35,6 @@ const EmployeeList = ({ data, employeeTypes, genderTypes, itemsPerPage, setItems
   const [empTypes, setEmpTypes] = useState()
   const [selEmpType, setSelEmpType] = useState()
 
-
-  const testAdd = {
-    'employeetypeid': 3
-   ,'accountid': '123-456-789-10'
-   ,'genderid': 10
-   ,'firstname': 'kora'
-   ,'lastname': 'nonta'
-   ,'identificationcardid': '2245-44224-2244'
-   ,'birthdate': '1966-04-10'
-   ,'joindate': '2010-01-01'
-   ,'image': ''
-   ,'salary': 10000
-   ,'positionsalary':0
-  }
-
   const { 
     slicedData, 
     pagination, 
@@ -150,7 +135,8 @@ const EmployeeList = ({ data, employeeTypes, genderTypes, itemsPerPage, setItems
           console.log(resp.data)
           if ( resp.data.status ) {
             console.log(resp.data.response)
-            const respEmp = resp.data.response.employee[0]
+            //const respEmp = resp.data.response.employee[0]
+            const respEmp = resp.data.response.employee
             console.log(respEmp)
             const copiedData = (mode === "edit") 
               ? filteredData.map(elem => +elem.employeeid === +respEmp.employeeid ? {...respEmp} : elem)
@@ -211,7 +197,7 @@ const EmployeeList = ({ data, employeeTypes, genderTypes, itemsPerPage, setItems
         <div className="row">
           <div className="col-md-2">
             <h1 className={classes.title}>พนักงาน</h1>
-            <IconButton onClick={() => {openPopup(testAdd, 'add')}}>
+            <IconButton onClick={() => {openPopup({}, 'add')}}>
               <img src={images.addIcon} alt="เพิ่มพนักงาน" width="40" title="เพิ่มพนักงาน"/>
             </IconButton>        
           </div>
@@ -340,4 +326,29 @@ export default EmployeeList
 
 
 */       
+
+
+  /*
+  const testAdd = {
+    'employeetypeid': 3
+   ,'accountid': '123-456-789-10'
+   ,'genderid': 10
+   ,'firstname': 'kora'
+   ,'lastname': 'nonta'
+   ,'identificationcardid': '2245-44224-2244'
+   ,'birthdate': '1966-04-10'
+   ,'joindate': '2010-01-01'
+   ,'image': ''
+   ,'salary': 10000
+   ,'positionsalary':0
+   ,'address': '75/1 Accapat alley 4'
+   ,'street': 'Sukhumvit soi 49'
+   ,'subdistrict': 'Wattana'
+   ,'district': 'Klongtey nuea'
+   ,'province': 'Bangkok'
+   ,'city': 'Bangkok'
+   ,'country': 'Thailand'
+   ,'postcode': '10110'
+  }
+*/
 

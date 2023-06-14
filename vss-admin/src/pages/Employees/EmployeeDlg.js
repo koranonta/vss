@@ -31,10 +31,11 @@ const EmployeeDlg = (props) => {
   const classes = AppStyles()
 
   useEffect(() => {  
+    setImage("")
     setReadOnly (mode === 'delete')    
-    if (mode === 'add') {      
-      setBuf(item)
-      setImage("")
+    if (mode === 'add') { 
+      setBuf({})
+      //setBuf(item)
     }
     else if (!_.isEmpty(item)) {
       setBuf(item)

@@ -50,22 +50,22 @@ elseif ($requestMethod == 'POST'):
   if (isset($id)):
     $employee['employeeid'] = $id;
     $res    = $employees->update($employee);
-    $address['employeeid'] = $id;    
     $okMsg  = 'Employee id [ ' . $id . ' ] updated';
     $errMsg = 'Unable to update Employee id [ ' . $id . ' ]';
   else:
     $res    = $employees->add($employee);
-    $id = $res[0]['employeeid'];
+    $id     = $res[0]['employeeid'];
     $okMsg  = 'New employee added';
     $errMsg = 'Unable to add employee';
   endif;
+  
+  $resEmp = $res[0];
   
   if ($res):      
     //  Save image
     if (isset($img['name']) && $img['error'] == 0):
       $imgHandler->saveImage($img);
     endif;
-    $response = array( 'res' => $okMsg, 'employee' => $res );
     //  Handle address
     $address = isset($_POST['address']) 
       ? array(
@@ -92,9 +92,11 @@ elseif ($requestMethod == 'POST'):
         $addrRes = $addresses->update($address);
       endif;
       if ($addrRes):
-        $response['address'] = $addrRes;
+        $resEmp = array_merge($resEmp, $addrRes[0]);
       endif;
-    endif;    
+    endif; 
+
+    $response = array( 'res' => $okMsg, 'employee' => $resEmp );
     Response::success($response);
   else:
     Response::error($errMsg);        
