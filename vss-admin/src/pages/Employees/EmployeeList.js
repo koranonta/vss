@@ -128,6 +128,15 @@ const EmployeeList = ({ data, employeeTypes, genderTypes, itemsPerPage, setItems
         formData.append('joindate', employee.joindate);
         formData.append('salary', employee.salary);
         formData.append('positionsalary', employee.positionsalary);
+        //  Employee address
+        formData.append('address', employee.address);
+        formData.append('street', employee.street);
+        formData.append('subdistrict', employee.subdistrict);
+        formData.append('district', employee.district);
+        formData.append('province', employee.province);
+        formData.append('city', employee.city);
+        formData.append('country', employee.country);
+        formData.append('postcode', employee.postcode);
 
         if (mode === "edit") 
           formData.append('employeeid', +employee.employeeid);
@@ -142,25 +151,7 @@ const EmployeeList = ({ data, employeeTypes, genderTypes, itemsPerPage, setItems
           if ( resp.data.status ) {
             console.log(resp.data.response)
             const respEmp = resp.data.response.employee[0]
-
-            //  Handle address
-            let respAddr = null
-            if (!_.isEmpty(employee.address)) {
-              const address = getAddress(employee)
-              ApiService.addAddress(address)
-              .then (resp1 => {
-                console.log(resp1.data)
-                if ( resp1.data.status ) {
-                  console.log(resp1.data.response)
-                  const respAddr = resp1.data.response.address[0]
-                }
-              })
-              .catch(e1 => console.log(e1))
-            }
-
-            console.log("respAddr", respAddr)
             console.log(respEmp)
-
             const copiedData = (mode === "edit") 
               ? filteredData.map(elem => +elem.employeeid === +respEmp.employeeid ? {...respEmp} : elem)
               : [...filteredData, respEmp];
