@@ -1,0 +1,3 @@
+DELETE FROM `PayrollRuns` 
+
+ALTER TABLE `PayrollRuns` AUTO_INCREMENT = 1;

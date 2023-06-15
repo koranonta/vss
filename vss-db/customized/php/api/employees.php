@@ -67,8 +67,7 @@ elseif ($requestMethod == 'POST'):
       $imgHandler->saveImage($img);
     endif;
     //  Handle address
-    $address = isset($_POST['address']) 
-      ? array(
+    $address = array(
         'addressid'   => $_POST['addressid']
        ,'address'     => $_POST['address']
        ,'street'      => $_POST['street']
@@ -78,13 +77,12 @@ elseif ($requestMethod == 'POST'):
        ,'city'        => $_POST['city']
        ,'country'     => $_POST['country']
        ,'postcode'    => $_POST['postcode']
-       ,'loginid'     => -1)
-      : array();  
+       ,'loginid'     => -1);  
       
     //var_dump($res);      
     //echo "employeeid {$id}";
     
-    if (isset($address)):
+    if (isset($_POST['address'])):
       $address['employeeid'] = $id;
       if (!isset($address['addressid']) || $address['addressid'] == '-1'):
         $addrRes = $addresses->add($address);
@@ -94,6 +92,8 @@ elseif ($requestMethod == 'POST'):
       if ($addrRes):
         $resEmp = array_merge($resEmp, $addrRes[0]);
       endif;
+    else:
+      $resEmp = array_merge($resEmp, $address);
     endif; 
 
     $response = array( 'res' => $okMsg, 'employee' => $resEmp );

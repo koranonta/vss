@@ -152,7 +152,12 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
     const handlePayrollDate = (date) => {
       setSelYear(date.getFullYear())
       setSelMonth(Util.thaimonths[date.getMonth()])      
-      setPayrollDate(date)
+
+      const payrollDate = new Date(date.getFullYear(), date.getMonth(), 1);
+
+      console.log(payrollDate)
+
+      setPayrollDate(payrollDate)
       setShowMain(true)
     }
 

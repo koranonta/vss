@@ -55,7 +55,7 @@ const Payroll = () => {
             let anciente = parseInt(moment(elem.joindate).fromNow().match(/\d+/))
             return { ...elem, deductionItems, totalDeduction, amountToPay, salary: sal, anciente}
           })
-          //console.log(empList)
+          console.log(empList)
           setEmplyees(empList)
         }      
       } catch (e) {
