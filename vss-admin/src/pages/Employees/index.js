@@ -41,8 +41,6 @@ const Employees = () => {
             !addrMap.has(+addr.employeeid) && addrMap.set(+addr.employeeid, addr))
         }
 
-        //console.log(addrMap)
-
         //  Load employee list
         const resp = await ApiService.getEmployees()        
         if (resp.status === Constants.K_HTTP_OK) {

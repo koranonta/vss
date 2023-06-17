@@ -34,7 +34,6 @@ const badge = {
   boxSizing: 'border-box',
   display: 'inline-block',
   color: '#ffffff',
-  borderRadius: '3rem',
   textAlign: 'center',
   lineHeight: 'inherit',
   width: '25px',
