@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import { IconButton } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import "react-datepicker/dist/react-datepicker.css";
+import moment from 'moment';
 
 import _ from 'lodash';
 import DatePicker from "react-datepicker";
@@ -13,7 +15,9 @@ import AppStyles from '../../theme/AppStyles';
 import { commonStyles } from '../../theme/CommonStyles';
 import { images } from '../../util/Images';
 import EmployeeFilterAndSearch from '../../components/EmployeeFilterAndSearch';
-import "react-datepicker/dist/react-datepicker.css";
+import ApiService from '../../services/ApiService'
+import Constants from '../../util/Constants';
+
 
 import ExcelExport from '../../util/ExcelExport';
 
@@ -42,6 +46,7 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
   const [selMonth, setSelMonth] = useState()
   const [selYear, setSelYear] = useState()
   const [showMain, setShowMain] = useState(true)
+  const [runId, setRunId] = useState()
 
   const { 
     slicedData, 
@@ -56,11 +61,62 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
 
     const classes = AppStyles()
 
+
+    const getDeductionInfo = (salary, deductionItems) => {
+      let totalDeduction = 0.0
+      deductionItems.forEach(item => totalDeduction += +item.amount)
+      const amountToPay = salary - totalDeduction
+  
+      console.log(totalDeduction)
+      console.log(amountToPay)
+
+      return {
+        deductionItems
+       ,totalDeduction
+       ,amountToPay 
+      }
+    }
+
+    const loadPayrollRun = (date) => {
+      const tmpDate = new Date(date.getFullYear(), date.getMonth(), 1);
+      const firstDay = moment(tmpDate).format('YYYY-MM-DD')
+      ApiService.getPayrollRunByDate(firstDay).then(resp => {
+        if (resp.status === Constants.K_HTTP_OK) {
+          const selRunId = +resp.data.response[0]['runid']
+          setRunId(selRunId) 
+          const deductionMap = new Map()
+          ApiService.getPayrollTransactionItems(selRunId).then(resp1 => {
+            if (resp1.status === Constants.K_HTTP_OK) {
+              let savedDeductions = resp1.data.response
+              //console.log(savedDeductions)
+              //  Create employee deduction map
+              savedDeductions.forEach( item => 
+                deductionMap.has(+item.employeeid) 
+                  ? deductionMap.get(+item.employeeid).push(item)
+                  : deductionMap.set(+item.employeeid, [item])
+              )
+              //  Assign saved deductions to employee list
+              //console.log(deductionMap)
+              const temp = filteredData.map(elem => 
+                deductionMap.has(+elem.employeeid)
+                  ? { ...elem, ...getDeductionInfo(+elem.salary, deductionMap.get(+elem.employeeid))}
+                  : elem)
+              console.log(temp)
+              setFilteredData(temp)              
+            }
+          })
+        }
+      })
+    }
+
+    //useEffect(() => {
+    //  console.log("runId", runId)
+    //},[runId])
+
     useEffect(()=> {
       const empSet = new Set()
       const empTypeList = []
       data.forEach(item => {
-        console.log()
         if (!empSet.has(item.employeetypethainame)) {
           empSet.add(item.employeetypethainame)
           empTypeList.push({ title: item.employeetypethainame, id: item.employeetypeid })
@@ -69,6 +125,7 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
       setEmpTypes(empTypeList)    
       setSelYear(payrollDate.getFullYear())
       setSelMonth(Util.thaimonths[payrollDate.getMonth()])  
+      loadPayrollRun(payrollDate)
     },[data])
 
     useEffect(() => {
@@ -95,10 +152,41 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
       setOpenDlg(true)
     }
 
+    const addPayrollTransaction = async (item, updatedDeductionItems) => {
+      //  Add payroll transaction
+      const transBody = {
+        "payrollrunid": +runId
+        ,"employeeid": +item.employeeid
+        ,"deductionid": +item.deductionId
+        ,"loginid": -1
+      }
+      //console.clear()
+      //console.log(transBody)
+      ApiService.addPayrollTransaction(transBody)
+        .then (resp => {
+          if (resp.status === Constants.K_HTTP_OK) {
+            const transId = resp.data.response.payrolltransaction[0]['payrolltransactionid']
+            //  Add payroll transaction item
+            updatedDeductionItems.forEach (elem => {
+              let transItem = {
+                  payrolltransactionid: +transId
+                 ,propertytypeid: +elem.propertytypeid
+                 ,amount: +elem.amount
+                 ,loginid: -1
+                }
+              ApiService.addPayrollTransactionItem(transItem)
+                .then (resp1 => console.log(resp1.status) )
+                .catch(e1    => console.log(e1) ) 
+            })      
+          }
+        })
+        .catch( e => console.log(e))      
+    }
+    
     const payrollHandler = (mode, res) => {
       //console.log("in Payroll Handler")
-      //console.log("action", mode)
-      //console.log("res", res)          
+      console.log("action", mode)
+      console.log("res", res)          
       //console.log(selItem)
       //console.log(filteredData)
       const temp = filteredData.map(item => {
@@ -107,6 +195,7 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
             let fieldName = elem.propertytypename.replaceAll(" ", "_")
             return {...elem, amount: res[fieldName]}
           })
+          addPayrollTransaction ( item, updatedDeductionItems )
           return ({...item, 
                     totalDeduction: res.totalDeduction, 
                     amountToPay: res.amountToPay,
@@ -115,11 +204,7 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
         else 
           return item
       })
-
-      console.log(temp)
       setFilteredData(temp)
-
-      /*  TODO - Update database  */
     }    
 
     const handleEmpType = (e) => {
@@ -153,11 +238,9 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
       setSelYear(date.getFullYear())
       setSelMonth(Util.thaimonths[date.getMonth()])      
 
-      const payrollDate = new Date(date.getFullYear(), date.getMonth(), 1);
-
-      console.log(payrollDate)
-
-      setPayrollDate(payrollDate)
+      const newDate = new Date(date.getFullYear(), date.getMonth(), 1);
+      setPayrollDate(newDate)
+      loadPayrollRun(newDate)
       setShowMain(true)
     }
 
@@ -168,10 +251,8 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
       setShowMain(false)
     }
 
-    const onExcelExport = () => 
-      ExcelExport.run(filteredData, payrollDate)
+    const onExcelExport = () => ExcelExport.run(filteredData, payrollDate)
     
-
     const header = () => (
       !showMain  &&  
       <table>
@@ -192,7 +273,6 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
 
     const mainScreen = () => (
       <>
-
        <Grid container>
         <Grid item xs={4}>
           <h1 className={classes.title}>เงินเดือน  {selMonth} {selYear}</h1>
@@ -214,7 +294,6 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
 
        <div className="row">
         <div className="col-md-12">
-
 
       {slicedData.length > 0 ? <>
         <div className="row">

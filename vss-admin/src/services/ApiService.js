@@ -21,16 +21,19 @@ const addUser = (formData) => {
       transformRequest: formData => formData,
     })
 }
-const deleteUser           = (id)   => api.delete(`/users.php?id=${id}`)
+const deleteUser                 = (id)   => api.delete(`/users.php?id=${id}`)
 
-const getAddresses         = ()     => api.get(`/addresses.php`)
-const addAddress           = (body) => api.post(`/addresses.php`, body)
-const deleteAddress        = (id)   => api.delete(`/addresses.php?id=${id}`)
+const getAddresses               = ()     => api.get(`/addresses.php`)
+const addAddress                 = (body) => api.post(`/addresses.php`, body)
+const deleteAddress              = (id)   => api.delete(`/addresses.php?id=${id}`)
 
-const getDeductionRules    = ()     =>  api.get(`/deductionrules.php`)     
-const getPropertiesByGroup = (id)   =>  api.get(`/propertytypes.php?id=${id}`)    
+const getDeductionRules          = ()     =>  api.get(`/deductionrules.php`)     
+const getPropertiesByGroup       = (id)   =>  api.get(`/propertytypes.php?id=${id}`)    
 
-
+const getPayrollRunByDate        = (date) => api.get(`/payrollruns.php?runDate=${date}`)
+const addPayrollTransaction      = (body) => api.post(`/payrolltransactions.php`, body)
+const addPayrollTransactionItem  = (body) => api.post(`/payrolltransactionitems.php`, body)
+const getPayrollTransactionItems = (id)   => api.get(`/payrolltransactionitems.php?runId=${id}`)
 
 const ApiService = {
   getEmployees,
@@ -46,6 +49,10 @@ const ApiService = {
   deleteAddress,
   getDeductionRules,
   getPropertiesByGroup,
+  getPayrollRunByDate,
+  addPayrollTransaction,
+  addPayrollTransactionItem,
+  getPayrollTransactionItems,
 }
 
 export default ApiService

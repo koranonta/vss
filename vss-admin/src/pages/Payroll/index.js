@@ -33,7 +33,6 @@ const Payroll = () => {
           let totalDeduction
           let amountToPay
           const empList = resp.data.response.data.map(elem => {
-            //deductionId = (+elem.employeetypeid === K_TEACHER_TYPE) ? K_TEACHER_DEDUCTION : K_STAFF_DEDUCTION
             deductionId = Constants.K_DEDUCTION_MAP.get(+elem.employeetypeid)
             totalDeduction = 0.0
             let deductionItems = []
@@ -53,9 +52,9 @@ const Payroll = () => {
             amountToPay = elem.salary - totalDeduction
             let sal = (elem.salary * 100.0) / 100.0
             let anciente = parseInt(moment(elem.joindate).fromNow().match(/\d+/))
-            return { ...elem, deductionItems, totalDeduction, amountToPay, salary: sal, anciente}
+            return { ...elem, deductionId, deductionItems, totalDeduction, amountToPay, salary: sal, anciente}
           })
-          console.log(empList)
+          //console.log(empList)
           setEmplyees(empList)
         }      
       } catch (e) {

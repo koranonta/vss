@@ -7,15 +7,19 @@ $payrollruns = new PayrollRuns();
 $errMsg = null;
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 if ($requestMethod == 'GET'):
-  $id = getId();
-  if ($id):
-    $res = $payrollruns->getById($id);
-    $response = array( "data" => $res );
-    Response::success($response);
+  $prRunDate = getParam("runDate");
+  if (isset($prRunDate)):
+    $res = $payrollruns->getByDate($prRunDate);
+    $response = $res;
   else:
-    $res = $payrollruns->getAll();
-    $response = array( "data" => $res );
-    Response::success($response);
+    $id = getId();
+    if ($id):
+      $res = $payrollruns->getById($id);
+      $response = array( "data" => $res );
+    else:
+      $res = $payrollruns->getAll();
+      $response = array( "data" => $res );
+    endif;
   endif;
 elseif ($requestMethod == 'POST'):  
   $res = $payrollruns->add(getBody());

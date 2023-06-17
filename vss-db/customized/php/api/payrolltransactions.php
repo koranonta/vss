@@ -11,21 +11,19 @@ if ($requestMethod == 'GET'):
   if ($id):
     $res = $payrolltransactions->getById($id);
     $response = array( "data" => $res );
-    Response::success($response);
   else:
     $res = $payrolltransactions->getAll();
     $response = array( "data" => $res );
-    Response::success($response);
   endif;
 elseif ($requestMethod == 'POST'):
-  $res    = $payrolltransactions->add(getBody());
+  $res = $payrolltransactions->add(getBody());
   if ($res):
     $response = array( 'res' => $okMsg, 'payrolltransaction' => $res );
   else:
     $errMsg = 'Unable to add payrolltransaction';
   endif;
 elseif ($requestMethod == 'PUT'):
-  $res = $payrolltransactions->update($payrolltransaction);
+  $res = $payrolltransactions->update(getBody());
   $id  = $res[0]['payrolltransactionid'];
   if ($res):
     $response = array( 'res' => $okMsg, 'payrolltransaction' => $res );

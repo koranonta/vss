@@ -7,25 +7,28 @@ $payrolltransactionitems = new PayrollTransactionItems();
 $errMsg = null;
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 if ($requestMethod == 'GET'):
-  $id = getId();
-  if ($id):
-    $res = $payrolltransactionitems->getById($id);
-    $response = array( "data" => $res );
-    Response::success($response);
+  $prRunId = getParam("runId");
+  if (isset($prRunId)):
+    $response = $payrolltransactionitems->getByRunId($prRunId);
   else:
-    $res = $payrolltransactionitems->getAll();
-    $response = array( "data" => $res );
-    Response::success($response);
+    $id = getId();
+    if ($id):
+      $res = $payrolltransactionitems->getById($id);
+      $response = array( "data" => $res );
+    else:
+      $res = $payrolltransactionitems->getAll();
+      $response = array( "data" => $res );
+    endif;
   endif;
 elseif ($requestMethod == 'POST'):
-  $res    = $payrolltransactionitems->add(getBody());  
+  $res = $payrolltransactionitems->add(getBody());  
   if ($res):
     $response = array( 'res' => 'New payrolltransactionitem added', 'payrolltransactionitem' => $res );  
   else:
     $errMsg = 'Unable to add payrolltransactionitem';
   endif;
 elseif ($requestMethod == 'PUT'):
-  $res    = $payrolltransactionitems->update(getBody());
+  $res = $payrolltransactionitems->update(getBody());
   $id  = $res[0]['payrolltransactionitemid'];
   if ($res):
     $response = array( 'res' => $okMsg, 'payrolltransactionitem' => $res );

@@ -18,11 +18,15 @@ class PayrollRuns extends Db
     $query = "CALL spGetPayrollRuns( ${payrollrunid} )";
     return $this->runQuery($query);
   }
+  
+  function getByDate ( $date ) {
+    $query = "CALL spGetPayrollRunByDate ( '${date}' )";
+    return $this->runQuery($query);
+  }
 
   function add( $payrollrun )
   {
     try {
-      echo ($payrollrun);
       $query = "CALL spAddPayrollRun( :payrollrundate, :loginid, @newId )";
       $stmt = $this->pdo->prepare($query);
       $stmt->bindParam(':payrollrundate', $payrollrun['payrollrundate']);
