@@ -18,7 +18,6 @@ import EmployeeFilterAndSearch from '../../components/EmployeeFilterAndSearch';
 import ApiService from '../../services/ApiService'
 import Constants from '../../util/Constants';
 
-
 import ExcelExport from '../../util/ExcelExport';
 
 const columns = [
@@ -61,15 +60,11 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
 
     const classes = AppStyles()
 
-
     const getDeductionInfo = (salary, deductionItems) => {
       let totalDeduction = 0.0
       deductionItems.forEach(item => totalDeduction += +item.amount)
       const amountToPay = salary - totalDeduction
-  
-      console.log(totalDeduction)
-      console.log(amountToPay)
-
+      //console.log(salary, totalDeduction, amountToPay)
       return {
         deductionItems
        ,totalDeduction
@@ -101,17 +96,13 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
                 deductionMap.has(+elem.employeeid)
                   ? { ...elem, ...getDeductionInfo(+elem.salary, deductionMap.get(+elem.employeeid))}
                   : elem)
-              console.log(temp)
+              //console.log(temp)
               setFilteredData(temp)              
             }
           })
         }
       })
     }
-
-    //useEffect(() => {
-    //  console.log("runId", runId)
-    //},[runId])
 
     useEffect(()=> {
       const empSet = new Set()
@@ -175,7 +166,7 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
                  ,loginid: -1
                 }
               ApiService.addPayrollTransactionItem(transItem)
-                .then (resp1 => console.log(resp1.status) )
+                //.then (resp1 => console.log(resp1.status) )
                 .catch(e1    => console.log(e1) ) 
             })      
           }
@@ -185,8 +176,8 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
     
     const payrollHandler = (mode, res) => {
       //console.log("in Payroll Handler")
-      console.log("action", mode)
-      console.log("res", res)          
+      //console.log("action", mode)
+      //console.log("res", res)          
       //console.log(selItem)
       //console.log(filteredData)
       const temp = filteredData.map(item => {
@@ -406,97 +397,3 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
 export default PayrollList
        
 
-/*
-
-        <PayrollDlg 
-           item={selItem}
-           width={'500px'}
-           open={openDlg}
-           setOpen={setOpenDlg}
-           actionHandler={userHandler}
-       />      
-
-
-                       <img src={ (!_.isEmpty(item.image) ? AppConfig.K_AVATAR_DIR + `${item.image}` : 'no-user-image.jpg')} width="40" style={{borderRadius: '40px'}}/>
-
-
-*/       
-
-
-/*
-
-    const payrollHandler = (mode, res) => {
-      //console.log("in Payroll Handler")
-      //console.log("action", mode)
-      //console.log("res", res)          
-      //console.log(selItem)
-      //console.log(filteredData)
-      /*
-      const temp = filteredData.map(item => {
-        if (selItem.employeeid === item.employeeid) {
-          const updatedItem = {...item, totalDeduction: res.totalDeduction, amountToPay: res.amountToPay}
-          return updatedItem;
-        }
-        else return item        
-      })
-      
-      const temp = filteredData.map(item => 
-        selItem.employeeid === item.employeeid
-          ? ({...item, totalDeduction: res.totalDeduction, amountToPay: res.amountToPay})
-          : item        )
-
-
-
-      setFilteredData(temp)
-      
-
-
-      console.log("in User Handler")
-      console.log("action", mode)
-      console.log("user", user)
-      if (mode === "add" || mode === "edit") {
-        const formData = new FormData()
-        formData.append('imgInput', user.imageUrl);
-        formData.append('name', user.name);
-        formData.append('password', user.password);
-        formData.append('email', user.email);
-        formData.append('phone', user.phone);
-        formData.append('roleid', user.roleid);
-        if (mode === "edit") 
-          formData.append('userid', +user.userid);
-        let image = user.image          
-        if (!_.isEmpty(user.imageUrl)) {
-          image = user.imageUrl.image.name
-        }
-        formData.append("image", image);
-        ApiService.addUser(formData)
-        .then(resp => {
-          console.log(resp.data)
-          if ( resp.data.status ) {
-            const respUser = resp.data.response.user[0]
-            const copiedData = (mode === "edit") 
-              ? filteredData.map(elem => +elem.userid === +respUser.userid ? respUser : elem)
-              : [...filteredData, respUser];
-            const sortedData = Util.sortData(copiedData, 'userid', 'asc');  
-            setFilteredData(sortedData)
-            
-          }
-        })
-        .catch(e => console.log(e))        
-      }
-      else if (mode === "delete") {            
-        ApiService.deleteUser(user.userid)
-        .then (resp => {
-          console.log(resp)
-          if ( resp.data.status ) {
-            const copiedData = [...filteredData];
-            const filtered = copiedData.filter(
-              elem => +elem.userid !== +user.userid ? elem : null)
-            setFilteredData(filtered)
-          }
-        })
-        .catch(e => console.log(e))
-      }
-
-    }    
-*/

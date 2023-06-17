@@ -25,8 +25,10 @@ const PayrollDlg = (props) => {
       item.deductionItems.forEach(elem => {
         deductItems = {...deductItems, 
           [elem.propertytypename.replaceAll(' ', '_')]: elem.amount}
-        tempDeduction += elem.amount
+        tempDeduction += +elem.amount
+        //console.log(item)
       })
+      //console.log(item.salary, tempDeduction)
       //console.log(deductItems)
       setBuf(deductItems)
       setTotalDeduction(tempDeduction)
@@ -40,13 +42,10 @@ const PayrollDlg = (props) => {
     e.preventDefault()
     const res = {...buf, totalDeduction, amountToPay}
     const map = new Map()
-
     Object.entries(buf).forEach(([key, value]) => map.set(key, value))
     map.set('totalDeduction', totalDeduction)
     map.set('amountToPay', amountToPay)
-
-    console.log(map)
-
+    //console.log(map)
     actionHandler(mode, res)
     setOpen(false)
   }
@@ -65,8 +64,9 @@ const PayrollDlg = (props) => {
       ([key, value]) => {
         //console.log(key, value)
         //console.log(value)
-        if (!isNaN(value)) 
-          tempDeduction += value
+        if (!isNaN(value)) {
+          tempDeduction += +value
+        }
       }
     )
     setTotalDeduction(tempDeduction)
@@ -114,7 +114,7 @@ const PayrollDlg = (props) => {
                        <input type="number" 
                          style={{textAlign: 'right'}}
                          value={ amtValue || ""}
-                         disabled={elem.allowablevalues !== null}
+                         disabled={elem.calculationrule !== null}
                          onChange={handleChange} 
                          autoComplete="off"
                          name={fieldName}
@@ -132,7 +132,6 @@ const PayrollDlg = (props) => {
                 </tr>
                 </tbody> 
             </table>
-
 
           <div className={`mt-3 mb-3 ${classes.rightButtonPanel}`}>
             <button onClick={e => onOk(e)} name="submit" className={classes.pillButton} style={{width: '100px'}}>Save</button>

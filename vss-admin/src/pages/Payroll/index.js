@@ -38,13 +38,13 @@ const Payroll = () => {
             let deductionItems = []
             deductionList.forEach (item => {
               if (+item.deductionid === deductionId) {
-                let amount = Util.calculateDeduction(elem.salary, item.allowablevalues)
+                let amount = Util.calculateDeduction(elem.salary, item.calculationrule, +item.maximumvalue)
                 totalDeduction += amount
                 deductionItems.push (
                   { propertytypeid: +item.propertytypeid,
                     propertytypename: item.propertytypename,
                     propertytypethainame: item.propertytypethainame,
-                    allowablevalues: item.allowablevalues,
+                    calculationrule: item.calculationrule,
                     amount              
                   }                   
                 )}

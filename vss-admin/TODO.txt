@@ -1,14 +1,12 @@
-Employee
-  Add, edit delete
-
-User  
-  Add, edit delete
-
 Payroll
-  Align deduction column
-  Save to database
-  Gen Excel sheet
+  Beautify Excel output
 
+Login
+  Registration
+  Reset password
+  Login
+  Logout
+  
 Configuration
-  Reference setup
+  Properties setup
   Deduction setup  

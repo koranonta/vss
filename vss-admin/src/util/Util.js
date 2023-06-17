@@ -70,11 +70,12 @@ const dupString = (str, num) => {
   return temp
 }
 
-const calculateDeduction = (salary, deductionDef) => {
+const calculateDeduction = (salary, deductionDef, maximumvalue) => {
   if (deductionDef === null) return 0.0
   if (deductionDef.endsWith("%")) {
     const numStr = deductionDef.substr(0, deductionDef.length - 1)
-    return salary * parseFloat(numStr) / 100.0
+    let res = salary * parseFloat(numStr) / 100.0
+    return (maximumvalue !== null && res > maximumvalue) ? maximumvalue : res;
   }
 }
 

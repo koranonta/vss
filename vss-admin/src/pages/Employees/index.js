@@ -41,7 +41,7 @@ const Employees = () => {
             !addrMap.has(+addr.employeeid) && addrMap.set(+addr.employeeid, addr))
         }
 
-        console.log(addrMap)
+        //console.log(addrMap)
 
         //  Load employee list
         const resp = await ApiService.getEmployees()        
