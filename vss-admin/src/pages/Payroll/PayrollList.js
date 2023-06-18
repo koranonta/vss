@@ -246,9 +246,8 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
     }   
 
     const handlePayrollDate = (date) => {
-      setSelYear(date.getFullYear())
+      setSelYear(Util.toThaiYear(date.getFullYear()))
       setSelMonth(Util.thaimonths[date.getMonth()])      
-
       const newDate = new Date(date.getFullYear(), date.getMonth(), 1);
       setPayrollDate(newDate)
       loadPayrollRun(newDate)
@@ -289,7 +288,7 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
           <h1 className={classes.title}>เงินเดือน  {selMonth} {selYear}</h1>
         </Grid>
         <Grid item xs={6}>
-          <div className={"mt-3"} >
+          <div className={"ml-5 mt-3"} >
              <button onClick={(e) => clearPayrollDate()} name="cancel" className={`mr-2 ${classes.pillButton}`} style={{width: '100px'}}>New Month</button>
           </div>
         </Grid>
