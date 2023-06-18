@@ -72,9 +72,29 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
       }
     }
 
+    const initDeduction = (item) => {
+      let totalDeduction = 0.0
+      let deductionItems = []
+      item.deductionItems.forEach (elem => {
+        let amount = Util.calculateDeduction(item.salary, elem.calculationrule, +elem.maximumvalue)
+        totalDeduction += amount        
+        deductionItems.push (
+          { propertytypeid: +elem.propertytypeid,
+            propertytypename: elem.propertytypename,
+            propertytypethainame: elem.propertytypethainame,
+            calculationrule: elem.calculationrule,
+            amount              
+           }                   
+        )
+      })
+      const amountToPay = (+item.salary - totalDeduction)
+      return { deductionItems, totalDeduction, amountToPay }
+    }
+
     const loadPayrollRun = (date) => {
       const tmpDate = new Date(date.getFullYear(), date.getMonth(), 1);
       const firstDay = moment(tmpDate).format('YYYY-MM-DD')
+
       ApiService.getPayrollRunByDate(firstDay).then(resp => {
         if (resp.status === Constants.K_HTTP_OK) {
           const selRunId = +resp.data.response[0]['runid']
@@ -92,11 +112,11 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
               )
               //  Assign saved deductions to employee list
               //console.log(deductionMap)
-              const temp = filteredData.map(elem => 
+              const temp = data.map(elem => 
                 deductionMap.has(+elem.employeeid)
                   ? { ...elem, ...getDeductionInfo(+elem.salary, deductionMap.get(+elem.employeeid))}
-                  : elem)
-              //console.log(temp)
+                  : { ...elem, ...initDeduction(elem) } 
+                )
               setFilteredData(temp)              
             }
           })
