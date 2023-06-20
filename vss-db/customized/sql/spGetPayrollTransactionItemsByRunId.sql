@@ -28,17 +28,21 @@ BEGIN
         ,pti.PropertyTypeId      as propertytypeid
         ,pt.PropertyTypeName     as propertytypename
         ,pt.PropertyTypeThaiName as propertytypethainame
-        ,pt.AllowableValues      as allowablevalues
+        ,di.CalculationRule      as calculationrule
+        ,di.MaximumValue         as maximumvalue
         ,pti.Amount              as amount
     FROM PayrollTransactions prt
    INNER JOIN PayrollTransactionItems pti
       ON prt.PayrollTransactionId = pti.PayrollTransactionId
+   INNER JOIN DeductionItems di
+      ON prt.DeductionId = di.DeductionId 
+     AND pti.PropertyTypeId = di.PropertyTypeId        
    INNER JOIN PropertyTypes pt
       ON pti.PropertyTypeId = pt.PropertyTypeId
    WHERE prt.PayrollRunId = pPayrollRunId
      AND prt.DateDeleted IS NULL
-     AND pti.DateDeleted IS NULL;
+     AND pti.DateDeleted IS NULL
+   ORDER BY prt.EmployeeId, di.DeductionItemId;
 END
 $$
 DELIMITER ;
-

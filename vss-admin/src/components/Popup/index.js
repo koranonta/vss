@@ -5,29 +5,23 @@ import Draggable from "react-draggable";
 import CloseIcon from '@material-ui/icons/Close';
 import Controls from '../Controls'
 
-const PaperComponent = (props) => {
-  return (
-    <Draggable
-      handle="#draggable-dialog-title"
-      cancel={'[class*="MuiDialogContent-root"]'}>
-      <Paper {...props} />
-    </Draggable>
-  );
-}
-
-const useStyles = makeStyles({
-  dialog: {
-    position: 'absolute',
-    top: 50
-  }
-});
-
 const Popup = (props) => {
-  const {title, children, open, setOpen, width, showCloseIcon = false} = props
-  const classes = useStyles()
+  const {title, children, open, setOpen, width, showCloseIcon = false, initialPos = {x: 0, y: 0}} = props
+
+  const PaperComponent = (props) => {
+    console.log(props)
+    return (
+      <Draggable
+        handle="#draggable-dialog-title"
+        cancel={'[class*="MuiDialogContent-root"]'}
+        defaultPosition={initialPos} >        
+        <Paper {...props} />
+      </Draggable>
+    );
+  }  
 
   return (
-      <Dialog open={open}  maxWidth="md" PaperComponent={PaperComponent}>
+      <Dialog open={open}  maxWidth="md" PaperComponent={PaperComponent} >
         <DialogTitle 
           style={{ cursor: "move", width:`${width}` }} 
           id="draggable-dialog-title">

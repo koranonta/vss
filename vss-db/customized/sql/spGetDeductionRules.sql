@@ -30,7 +30,8 @@ BEGIN
         ,pt.PropertyTypeName     as propertytypename
         ,pt.PropertyTypeThaiName as propertytypethainame
         ,pt.Alias                as alias
-        ,pt.AllowableValues      as allowablevalues
+        ,di.CalculationRule      as calculationrule
+        ,di.MaximumValue         as maximumvalue
     FROM DeductionItems di
    INNER JOIN Deductions dh
       ON di.DeductionId = dh.DeductionId

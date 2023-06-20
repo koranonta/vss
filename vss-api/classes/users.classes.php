@@ -13,10 +13,20 @@ class Users extends Db
     return $this->runQuery($query);
   }
 
-  function getById(( $userid ))
+  function getById( $userid )
   {
     $query = 'CALL spGetUserById( $userid )';
     return $this->runQuery($query);
+  }
+  
+  function getByIdentifier ( $identifier ) 
+  {
+    $query = 'CALL spGetUserByIdentifier( $identifier )';
+    return $this->runQuery($query);
+  }
+  
+  function updatePassword ( $user ) 
+  {
   }
 
   function delete( $userid )

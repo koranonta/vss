@@ -18,6 +18,7 @@
 }
 
 .side_bar .side_bar_top .profile_pic img{
+	top: 100px;
 	width: 115px;
 	height: 115px;
 	padding: 5px;
@@ -100,3 +101,76 @@
 .side_bar .side_bar_bottom ul li.active .bottom_curve:before{
 	border-top-right-radius: 25px;
 }
+
+/*  Navbar  
+
+.navbar{
+	background-color: #005193;
+	height: 40px;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+}
+
+.menu-bars{
+	margin-left: 2rem;
+	font-size: 1rem;
+	background: none;
+}
+
+.nav-menu{
+	background: #005193;
+	width: 250px;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: -100%;
+	transition: .85s;
+}
+
+.nav-menu.active{
+	left: 0;
+	transition: .35s;
+}
+
+.nav-text{
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	padding: 8px    16px;
+	list-style: none;
+	height: 10px;
+	
+}
+.nav-text a{
+	text-decoration: none;
+	color: #f5f5f5;
+	font-size: 12px;
+	width: 95%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	padding: 10px 10px 10px 15px;
+	border-radius: 4px;
+}
+.nav-text a:hover{
+	background: #f05b07;
+}
+.nav-menu-items{
+	width: 100%;
+}
+.navbar-toggle{
+	background: #005193;
+	width: 100%;
+	height: 80px;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+}
+span{
+	margin-left: 16px;
+}
+
+*/

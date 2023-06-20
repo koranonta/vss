@@ -4,7 +4,7 @@ import './styles.css';
 const Footer = () => {
   return (
     <footer>
-       La passion Admin
+       VSS School
     </footer>
   );
 }

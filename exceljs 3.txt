@@ -8,6 +8,11 @@ https://stackoverflow.com/questions/55132760/creating-excel-file-and-writing-to-
 https://www.tabnine.com/code/javascript/modules/exceljs
 https://github.com/exceljs/exceljs/issues/592
 
+https://stackoverflow.com/questions/59245459/exceljs-node-horizontalcentered-verticalcentered-in-page-not-working
+
+
+
+
 Layout
 https://rsuitejs.com/components/container/#basic-layout
 https://codesandbox.io/s/exciting-hawking-evmuzb?file=/src/components/Footer.js

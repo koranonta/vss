@@ -32,6 +32,8 @@ CREATE TABLE PropertyTypes (
   PropertyTypeThaiName   VARCHAR(100),
   Alias                  VARCHAR(100),
   AllowableValues        VARCHAR(100),
+  Rules                  VARCHAR(100),
+  SortOrder              INT
   DateCreated  DATETIME  NOT NULL,
   DateModified DATETIME  NOT NULL,
   DateDeleted  DATETIME  DEFAULT NULL,
@@ -121,15 +123,17 @@ CREATE TABLE Deductions (
 );
 
 CREATE TABLE DeductionItems (
-  DeductionItemId   INT         NOT NULL AUTO_INCREMENT,
-  DeductionId       INT         NOT NULL,
-  PropertyTypeId    INT         NOT NULL,
-  DateCreated       DATETIME    NOT NULL,
-  DateModified      DATETIME    NOT NULL,
-  DateDeleted       DATETIME    DEFAULT NULL,
-  CreatedBy         INT         NOT NULL DEFAULT -1,
-  ModifiedBy        INT         NOT NULL DEFAULT -1,
-  DeletedBy         INT         DEFAULT NULL,
+  DeductionItemId   INT          NOT NULL AUTO_INCREMENT,
+  DeductionId       INT          NOT NULL,
+  PropertyTypeId    INT          NOT NULL,
+  CalculationRule   VARCHAR(100) DEFAULT NULL,
+  MaximumValue      FLOAT        DEFAULT NULL,
+  DateCreated       DATETIME     NOT NULL,
+  DateModified      DATETIME     NOT NULL,
+  DateDeleted       DATETIME     DEFAULT NULL,
+  CreatedBy         INT          NOT NULL DEFAULT -1,
+  ModifiedBy        INT          NOT NULL DEFAULT -1,
+  DeletedBy         INT          DEFAULT NULL,
   PRIMARY KEY (DeductionItemId),
   FOREIGN KEY (DeductionId) REFERENCES Deductions(Deductions),
   FOREIGN KEY (PropertyTypeId) REFERENCES PropertyTypes(PropertyTypeId)

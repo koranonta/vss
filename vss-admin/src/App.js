@@ -5,11 +5,15 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Employees from './pages/Employees';
 import Payroll from './pages/Payroll';
 import Users from './pages/Users';
-import { Dashboard } from '@material-ui/icons';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login'
+
 //  Fonts
 import './assets/fonts/DIN_Alternate_Bold.ttf'
 import './assets/fonts/Hero_Light.otf'
 import './assets/fonts/Hero.otf'
+import Footer from './components/Footer';
+
 
 function App() {
   return (
@@ -18,7 +22,7 @@ function App() {
         <Navbar />
         <div className="main_container">
         <Routes>
-          <Route path='/'          exact element={<Dashboard/>} />
+          <Route path='/'          exact element={<Login/>} />
           <Route path='/employees' element={<Employees/>} />
           <Route path='/payroll'   element={<Payroll/>} />
           <Route path='/users'     element={<Users/>} />
@@ -31,6 +35,29 @@ function App() {
 
 export default App;
 
+
+/*
+
+<Route path='/'          exact element={<Dashboard/>} />
+
+
+      <BrowserRouter basename="/app/vss/admin">
+      <div style={{height: '40px'}}>VSS School</div>
+
+      <div className="wrapper">
+        <Navbar />
+        <div className="main_container">
+        <Routes>
+          <Route path='/'          exact element={<Dashboard/>} />
+          <Route path='/employees' element={<Employees/>} />
+          <Route path='/payroll'   element={<Payroll/>} />
+          <Route path='/users'     element={<Users/>} />
+        </Routes>
+        </div>
+      </div>
+      <Footer />
+      </BrowserRouter>
+*/
 
 /*
 
