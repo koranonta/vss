@@ -1,4 +1,3 @@
-import _ from "lodash";
 import * as excelJS from "exceljs";
 import { saveAs } from "file-saver";
 import Constants from './Constants'
@@ -19,27 +18,7 @@ const getSheet = (workbook, sheetName) => {
   const sheet = workbook.addWorksheet(sheetName, {
     pageSetup: ReportConstants.K_PAGE_SETUP,
     style: ReportConstants.K_SHEET_STYLE
-  }
-  
-/*    
-    {
-    pageSetup: {
-      horizontalCentered: true,
-      verticalCentered: true,
-      paperSize: 9,
-      orientation: 'landscape',
-      margins: {
-        left: 0.3149606, right: 0.3149606,
-        top: 0.3543307, bottom: 0.3543307,
-        header: 0.3149606, footer: 0.3149606
-      }
-    },
-    style: {
-      font: { size:16, name: 'Angsana New' }
-    }
-  }
-*/  
-  )  
+  })  
   return sheet
 }
 
@@ -55,6 +34,7 @@ const addMergeLine = (sheet, rowIndex, startCol, endCol, info, alignment, font) 
   sheet.mergeCells(rowIndex, startCol, rowIndex, endCol)
   sheet.getRow(rowIndex).getCell(startCol).value = info
   const srow = sheet.getRow(rowIndex);
+  srow.height = ReportConstants.K_ROW_HEIGHT
   srow.eachCell({includeEmpty: true}, (cell => {
     cell.alignment = alignment;
     cell.font = font    
@@ -65,23 +45,28 @@ const addHeader = (sheet, rowIndex, title) => {
   addMergeLine(sheet, rowIndex++, 1, 15, "หลักฐานการจ่ายเงินเดือนผ่านระบบธนาคาร", ReportConstants.K_ALIGN_VM_HC, ReportConstants.K_THAI_BOLD_FONT)
   addMergeLine(sheet, rowIndex++, 1, 15, "โรงเรียนวีรนาทศึกษามูลนิธิ อำเภอเมือง จังหวัดพัทลุง", ReportConstants.K_ALIGN_VM_HC, ReportConstants.K_THAI_BOLD_FONT)
   addMergeLine(sheet, rowIndex++, 1, 15, title, ReportConstants.K_ALIGN_VM_HC, ReportConstants.K_THAI_BOLD_FONT)
-  return rowIndex
+  return rowIndex++
 }
 
-const addFooter = (sheet, rowIndex) => {
+const addFooter = (sheet, rowIndex, pageNo, totalPages) => {
   ReportConstants.K_FOOTER.forEach(item => {
     addMergeLine(sheet, rowIndex++, 2, 15, item, ReportConstants.K_ALIGN_VM_HL, ReportConstants.K_THAI_NORMAL_FONT)  
   })
+  const pageInfo = "หน้า " + pageNo + " / " + totalPages
+  addMergeLine(sheet, rowIndex++, 2, 15, pageInfo, ReportConstants.K_ALIGN_VM_HC, ReportConstants.K_THAI_BOLD_FONT)  
   return rowIndex
 }
 
 const addColumnHeader = (sheet, columnHeader, rowIndex, alignment, font) => {  
   sheet.getRow(rowIndex).values = columnHeader
   let srow = sheet.getRow(rowIndex);
+  srow.height = ReportConstants.K_COLUMN_HEADER_ROW_HEIGHT
   srow.eachCell({includeEmpty: true}, ((cell, cellIndex) => {
     cell.alignment = alignment;
     cell.font = font;
     cell.border = ReportConstants.K_THIN_BORDER_STYLE;
+    if (cellIndex === 2 || cellIndex === 2)
+      cell.width = 30
   }));  
   return rowIndex
 }
@@ -91,18 +76,14 @@ const addSheet = (workbook, sheetName, list, title) => {
   const numCols = sheetName === "ครูบรรจุ" ? 11 : 7
   for (let i=0; i<numCols; i++) {
     sheet.getColumn(i + ReportConstants.K_START_NUMERIC_COL).numFmt = '###,##0.00'  
-    //let cellWidth = cellSizeMap.get(i+1) 
-    //console.log(cellWidth)
-    //if (!_.isEmpty(cellWidth)) {
-    //  sheet.getColumn(i + 1).width = 20
-    //  console.log(i, cellWidth)
-    //}  
   }
   const columnHeader = getColumnHeader(list[0])
   let rowIndex = 1
+  let pageNo = 1;
+  let totalPages = Math.ceil(list.length / ReportConstants.K_NUM_ROWS_PER_PAGE)
   rowIndex = addHeader (sheet, rowIndex, title)
   rowIndex = addColumnHeader(sheet, columnHeader, rowIndex, ReportConstants.K_ALIGN_VM_HC, ReportConstants.K_THAI_BOLD_FONT)
-  let seq = 0;
+  let seq = 0
   let itemOnPage = 0
   //  Detail
   list.forEach(item => {
@@ -120,20 +101,22 @@ const addSheet = (workbook, sheetName, list, title) => {
     info.push("")
     sheet.getRow(rowIndex).values = info
     let srow = sheet.getRow(rowIndex);
+    srow.height = ReportConstants.K_ROW_HEIGHT
     srow.eachCell({includeEmpty: true}, (cell => {
       cell.font = { size: 12, name: 'Angsana New' };
       cell.border = ReportConstants.K_THIN_BORDER_STYLE;      
     }));    
     if ((itemOnPage % ReportConstants.K_NUM_ROWS_PER_PAGE) === 0) {
       rowIndex += 2
-      rowIndex = addFooter(sheet, rowIndex)
-      rowIndex++;
+      rowIndex = addFooter(sheet, rowIndex, pageNo, totalPages)
+      rowIndex++
+      pageNo++;
       rowIndex = addHeader (sheet, rowIndex, title)
       rowIndex = addColumnHeader(sheet, columnHeader, rowIndex, ReportConstants.K_ALIGN_VM_HC, ReportConstants.K_THAI_BOLD_FONT)      
     } 
   })
   rowIndex += 2
-  rowIndex = addFooter(sheet, rowIndex)
+  rowIndex = addFooter(sheet, rowIndex, pageNo, totalPages)
 }
 
 const run = (list, payrollDate) => {

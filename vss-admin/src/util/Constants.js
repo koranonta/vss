@@ -7,6 +7,7 @@ const K_USER_ROLES_TYPE      = 2
 const K_GENDER_TYPE          = 3
 const K_DEDICTION_TYPE       = 4
 
+
 const K_HTTP_OK              = 200
 
 const K_DEDUCTION_MAP = new Map()

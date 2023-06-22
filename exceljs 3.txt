@@ -27,3 +27,45 @@ https://codesandbox.io/s/invisible-backdrop-tgco0?fontsize=14
 https://codesandbox.io/s/invisible-backdrop-tgco0?fontsize=14&file=/index.js
 https://github.com/mui/material-ui/issues/32358
 
+
+
+
+dynamic form
+https://codingstatus.com/add-and-delete-table-rows-dynamically-using-react-js/
+https://codesandbox.io/s/3vk7jxv69p?file=/src/index.js
+https://sadam-bapunawar.medium.com/add-and-remove-form-fields-dynamically-using-react-and-react-hooks-3b033c3c0bf5
+https://codingstatus.com/password-and-confirm-password-validation-in-react-js/
+https://dev.to/franklin030601/dynamic-forms-with-react-hook-form-2ml8
+https://codesandbox.io/s/3vk7jxv69p?file=/src/index.js
+
+https://codingstatus.com/create-dynamic-table-from-json-in-react-js/
+https://codingstatus.com/add-and-delete-table-rows-dynamically-using-react-js/
+
+
+https://www.geeksforgeeks.org/react-suite-popover-container-and-prevent-overflow/
+https://blog.logrocket.com/react-hook-form-complete-guide/
+
+
+vite 
+https://www.telerik.com/blogs/how-to-create-validate-react-form-hooks
+https://www.telerik.com/blogs/whats-vite-guide-modern-super-fast-project-tooling
+
+rsuite
+https://rsuitejs.com/components/panel/
+https://www.geeksforgeeks.org/react-suite-checkpicker-container-and-prevent-overflow/
+https://rsuitejs.com/components/tree/
+https://www.geeksforgeeks.org/react-suite/
+
+drop down menu
+https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/
+
+
+npm init vite react-hooks-form -- --template react
+
+
+
+Authen
+https://blog.devgenius.io/how-to-add-authentication-to-a-react-app-26865ecaca4b
+https://hygraph.com/blog/react-authentication
+https://blog.logrocket.com/adding-login-authentication-secure-react-apps/
+https://karnyong.medium.com/%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%99-react-%E0%B8%97%E0%B8%B3%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2-login-%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%81%E0%B9%83%E0%B8%8A%E0%B9%89-api-%E0%B8%87%E0%B9%88%E0%B8%B2%E0%B8%A2%E0%B8%AA%E0%B8%B8%E0%B8%94%E0%B9%86-e8f2fd753345

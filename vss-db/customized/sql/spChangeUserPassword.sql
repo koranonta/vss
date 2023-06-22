@@ -1,14 +1,14 @@
 DELIMITER $$
-DROP PROCEDURE IF EXISTS spUserChangePassword
+DROP PROCEDURE IF EXISTS spChangeUserPassword
 $$
 
-CREATE PROCEDURE spUserChangePassword (
+CREATE PROCEDURE spChangeUserPassword (
   pUserId      INT
  ,pNewPassword VARCHAR(255)
  ,pLoginId     INT
 )
 /***********************************************************
- *  Procedure: spUserChangePassword
+ *  Procedure: spChangeUserPassword
  *
  *  Purpose:
  *    

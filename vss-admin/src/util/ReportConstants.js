@@ -13,6 +13,8 @@ const K_THIN_BORDER_STYLE     = {
 
 const K_START_NUMERIC_COL = 4
 const K_NUM_ROWS_PER_PAGE = 20
+const K_ROW_HEIGHT = 25
+const K_COLUMN_HEADER_ROW_HEIGHT = 62
 
 const K_FOOTER = [
   "   ลงชื่อ ............................................................................ผู้ลงนามแทนผู้รับใบอนุญาต",
@@ -55,6 +57,8 @@ const ReportConstants = {
   cellSizeMap,
   K_PAGE_SETUP,
   K_SHEET_STYLE,
+  K_ROW_HEIGHT,
+  K_COLUMN_HEADER_ROW_HEIGHT,
 }
 
 export default ReportConstants
