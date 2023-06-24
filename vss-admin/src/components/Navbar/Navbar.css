@@ -4,7 +4,6 @@
 }
 
 .side_bar .side_bar_top{
-	background: #ff00ff;
 	height: 225px;
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
@@ -41,7 +40,19 @@
 	padding-left: 15px;		
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;	
+	/* border: solid 1px black; */
 }
+
+.side_bar .side_bar_user{
+	background: #1232c4;
+	bottom: 100px;
+	padding: 20px 0;
+	padding-left: 15px;		
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;	
+}
+
+
 
 .side_bar .side_bar_bottom ul li{
 	position: relative;

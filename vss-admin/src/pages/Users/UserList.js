@@ -182,8 +182,8 @@ const UserList = ({ data, roles, itemsPerPage, setItemsPerPage, startFrom }) => 
 
       {slicedData.length > 0 ? <>
         <div className="row">
-          <div className="col-md-12">
-            <table className="spacing-table">
+          <div className="col-md-12" style={{'overflowX': 'auto'}}>
+            <table>
               <thead>
                 <tr>
                 {columns.map((col, index) => (
@@ -251,7 +251,14 @@ const UserList = ({ data, roles, itemsPerPage, setItemsPerPage, startFrom }) => 
         }
           </div>
         </div>
-       <UserDlg 
+        </>
+        :
+        <div className="message is-link">
+          <div className="message-body has-text-centered">No results</div>
+        </div>
+      }
+
+      <UserDlg 
          item={selItem}
          roles={roles}
          mode={mode}
@@ -259,15 +266,7 @@ const UserList = ({ data, roles, itemsPerPage, setItemsPerPage, startFrom }) => 
          open={openDlg}
          setOpen={setOpenDlg}
          actionHandler={userHandler}
-       />           
-
-
-        </>
-        :
-        <div className="message is-link">
-          <div className="message-body has-text-centered">No results</div>
-        </div>
-      }
+      />           
      </>
     );    
 }

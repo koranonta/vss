@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import { IconButton } from '@material-ui/core';
 import _ from 'lodash';
@@ -12,6 +12,7 @@ import AppStyles from '../../theme/AppStyles';
 import { commonStyles } from '../../theme/CommonStyles';
 import { images } from '../../util/Images';
 import EmployeeFilterAndSearch from '../../components/EmployeeFilterAndSearch';
+import { AppContext } from '../../context/AppContext';
 
 const columns = [
   { label: 'รหัส', sortKey: 'employeeid', align: 'left', width: '8%' },
@@ -35,6 +36,8 @@ const EmployeeList = ({ data, employeeTypes, genderTypes, itemsPerPage, setItems
   const [empTypes, setEmpTypes] = useState()
   const [selEmpType, setSelEmpType] = useState()
 
+  const { login } = useContext(AppContext)
+
   const { 
     slicedData, 
     pagination, 
@@ -49,6 +52,9 @@ const EmployeeList = ({ data, employeeTypes, genderTypes, itemsPerPage, setItems
     const classes = AppStyles()
 
     useEffect(()=> {
+
+      console.log(login)
+
       const empSet = new Set()
       const empTypeList = []
       data.forEach(item => {
@@ -212,8 +218,8 @@ const EmployeeList = ({ data, employeeTypes, genderTypes, itemsPerPage, setItems
 
       {slicedData.length > 0 ? <>
         <div className="row">
-          <div className="col-md-12">
-            <table className="spacing-table">
+          <div className="col-md-12" >
+            <table width="100%">
               <thead>
                 <tr>
                 {columns.map((col, index) => (

@@ -24,16 +24,18 @@ const addUser = (formData) => {
 const deleteUser                 = (id)   => api.delete(`/users.php?id=${id}`)
 
 const getAddresses               = ()     => api.get(`/addresses.php`)
-const addAddress                 = (body) => api.post(`/addresses.php`, body)
+const addAddress                 = (body) => api.post(`/addresses.php`, JSON.stringify(body))
 const deleteAddress              = (id)   => api.delete(`/addresses.php?id=${id}`)
 
 const getDeductionRules          = ()     =>  api.get(`/deductionrules.php`)     
 const getPropertiesByGroup       = (id)   =>  api.get(`/propertytypes.php?id=${id}`)    
 
 const getPayrollRunByDate        = (date) => api.get(`/payrollruns.php?runDate=${date}`)
-const addPayrollTransaction      = (body) => api.post(`/payrolltransactions.php`, body)
-const addPayrollTransactionItem  = (body) => api.post(`/payrolltransactionitems.php`, body)
+const addPayrollTransaction      = (body) => api.post(`/payrolltransactions.php`, JSON.stringify(body))
+const addPayrollTransactionItem  = (body) => api.post(`/payrolltransactionitems.php`, JSON.stringify(body))
 const getPayrollTransactionItems = (id)   => api.get(`/payrolltransactionitems.php?runId=${id}`)
+
+const authenticate               = (body) => api.post(`/authentication.php`, JSON.stringify(body))
 
 const ApiService = {
   getEmployees,
@@ -53,6 +55,7 @@ const ApiService = {
   addPayrollTransaction,
   addPayrollTransactionItem,
   getPayrollTransactionItems,
+  authenticate,
 }
 
 export default ApiService

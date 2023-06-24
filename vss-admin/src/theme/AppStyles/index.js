@@ -3,6 +3,12 @@ import { colors } from '../../util/Colors'
 const AppStyles = makeStyles((theme) => ({ 
   tableFont: { fontSize: '12px' },
 
+  dialogHeader: {
+    fontFamily: 'din',
+    fontSize: '30px',
+    flexGrow: 1,
+  },
+
   inputArea: {
     height: '6em', 
     marginBottom: '7px', 

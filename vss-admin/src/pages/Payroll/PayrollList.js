@@ -302,9 +302,6 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
         </Grid>
        </Grid>            
 
-       <div className="row">
-        <div className="col-md-12">
-
       {slicedData.length > 0 ? <>
         <div className="row">
           <div className="col-md-12">
@@ -384,7 +381,7 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
             </Grid>
           </Grid>  
           </div>
-        </div>
+        </div> 
 
         <PayrollDlg 
            item={selItem}
@@ -400,8 +397,6 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
           <div className="message-body has-text-centered">No results</div>
         </div>
       }
-      </div>
-      </div>
      </>
     )
     
