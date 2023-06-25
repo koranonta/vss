@@ -5,6 +5,9 @@ import Draggable from "react-draggable";
 import CloseIcon from '@material-ui/icons/Close';
 import Controls from '../Controls'
 
+
+let startPos = {x: 0, y: 0}
+
 const PaperComponent = (props) => {
   //const { initialPos } = PushSubscriptionOptions
   //console.log("paper", props)
@@ -12,7 +15,7 @@ const PaperComponent = (props) => {
     <Draggable
       handle="#draggable-dialog-title"
       cancel={'[class*="MuiDialogContent-root"]'}
-      //defaultPosition={initialPos} 
+      defaultPosition={startPos} 
       >        
       <Paper {...props} />
     </Draggable>
@@ -33,7 +36,8 @@ const Popup = (props) => {
   const {title, children, open, setOpen, width, showCloseIcon = false, initialPos = {x: 0, y: 0}} = props
 
   const classes = useStyles()
-
+  startPos = initialPos
+  
   return (
       <Dialog open={open}  maxWidth="md" PaperComponent={PaperComponent} >
         <DialogTitle 

@@ -13,7 +13,7 @@ const K_REGISTER_FIELDS = [
 
 const K_RESET_PASSWORD_FIELDS = [
   { label: 'ชื่อ :',         fieldName: 'name',     align: 'right', labelWidth: '40%', inputWidth: '60%' },
-  { label: 'รหัสผ่าน :',     fieldName: 'password', align: 'right', labelWidth: '40%', inputWidth: '60%' },
+  { label: 'รหัสผ่าน :',     fieldName: 'newpassword', align: 'right', labelWidth: '40%', inputWidth: '60%' },
   { label: 'ยืนยันรหัสผ่าน :', fieldName: 'confirmpassword', align: 'right', labelWidth: '40%', inputWidth: '60%' },
 ]
 
@@ -37,6 +37,7 @@ const K_HEADERS = ['เข้าสู่ระบบ', 'สมัครผู�
 const K_LOGIN = 0
 const K_REGISTER = 1
 const K_RESET_PASSWORD = 2
+const K_REGULAR_USER = 7
 
 const LoginConstants = {
   K_FIELDS_OPTIONS,
@@ -45,6 +46,7 @@ const LoginConstants = {
   K_REGISTER,
   K_RESET_PASSWORD,
   K_CLEAR_FIELDS,
+  K_REGULAR_USER,
 }
 
 export default LoginConstants

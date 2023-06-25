@@ -26,7 +26,7 @@ const LoginDlg = (props) => {
 
   const classes = AppStyles()
 
-  const { setLogin, setSelMenu } = useContext(AppContext)
+  const { login, setLogin, setSelMenu } = useContext(AppContext)
   const navigate = useNavigate();
 
   /*
@@ -75,7 +75,10 @@ const LoginDlg = (props) => {
 
   const onOk = (e) => {
     e.preventDefault()
-    const body = {...buf, "action": (+mode + 1)}
+    const loginId = _.isEmpty(login) ? -1 : login.userid
+    let body = {...buf, "action": (+mode + 1), "loginid": loginId}
+    if (+mode === LoginConstants.K_REGISTER) 
+      body = {...body, "image": null, "roleid": LoginConstants.K_REGULAR_USER}
     loginHandler(body)
   }
 
