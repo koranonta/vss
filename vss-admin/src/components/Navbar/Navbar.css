@@ -113,6 +113,41 @@
 	border-top-right-radius: 25px;
 }
 
+.side_bar .side_bar_bottom .container {
+  margin: 0 0;
+}
+
+.side_bar .side_bar_bottom .team-profile {
+  text-align: center;
+  padding: 0px 0px;
+}
+
+.side_bar .side_bar_bottom .team-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 50%
+}
+
+.team-name {
+  margin: 0px 0 5px;
+}
+
+.team-role {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Generic Styles end */
+
+.side_bar .side_bar_bottom .container {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
 /*  Navbar  
 
 .navbar{

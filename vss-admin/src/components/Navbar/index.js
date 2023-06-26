@@ -56,14 +56,20 @@ const Navbar = () => {
 	            </ul>
               <br/>
               <br/>
-              <div>
+              <div className="container">
+                <div className="team-profile">
                 { _.isEmpty(login) ? "" : 
                 <>
                 <img src={ AppConfig.K_AVATAR_DIR + (!_.isEmpty(login.image) ?`${login.image}` : 'no-image.png')} width="40" style={{borderRadius: '40px'}}/>
+                <div className="team-name">
+                   {login.name}                  
+                </div>
+
                 &nbsp;&nbsp;
                 <a href="#" onClick={e => logout()}>Logout</a>
                 </>
                 }
+                </div>
               </div>
 	          </div>
             
