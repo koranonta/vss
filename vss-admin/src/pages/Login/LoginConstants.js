@@ -1,22 +1,21 @@
 const K_LOGIN_FIELDS = [
   { label: 'ชื่อ :',      fieldName: 'name',     align: 'right', labelWidth: '30%', inputWidth: '70%' },
-  { label: 'รหัสผ่าน :',  fieldName: 'password', align: 'right', labelWidth: '30%', inputWidth: '70%' },
+  { label: 'รหัสผ่าน :',  fieldName: 'password', align: 'right', labelWidth: '30%', inputWidth: '70%', type: 'password' },
 ]
 
 const K_REGISTER_FIELDS = [
   { label: 'ชื่อ :',         fieldName: 'name',     align: 'right', labelWidth: '40%', inputWidth: '60%' },
   { label: 'อีเมล :',       fieldName: 'email',    align: 'right', labelWidth: '40%', inputWidth: '60%' },
   { label: 'เบอร์โทร :',    fieldName: 'phone',   align: 'right', labelWidth: '40%', inputWidth: '60%' },
-  { label: 'รหัสผ่าน :',     fieldName: 'password', align: 'right', labelWidth: '40%', inputWidth: '60%' },
-  { label: 'ยืนยันรหัสผ่าน :', fieldName: 'confirmpassword', align: 'right', labelWidth: '30%', inputWidth: '70%' },
+  { label: 'รหัสผ่าน :',     fieldName: 'password', align: 'right', labelWidth: '40%', inputWidth: '60%', type: 'password' },
+  { label: 'ยืนยันรหัสผ่าน :', fieldName: 'confirmpassword', align: 'right', labelWidth: '30%', inputWidth: '70%', type: 'password' },
 ]
 
 const K_RESET_PASSWORD_FIELDS = [
   { label: 'ชื่อ :',         fieldName: 'name',     align: 'right', labelWidth: '40%', inputWidth: '60%' },
-  { label: 'รหัสผ่าน :',     fieldName: 'newpassword', align: 'right', labelWidth: '40%', inputWidth: '60%' },
-  { label: 'ยืนยันรหัสผ่าน :', fieldName: 'confirmpassword', align: 'right', labelWidth: '40%', inputWidth: '60%' },
+  { label: 'รหัสผ่าน :',     fieldName: 'newpassword', align: 'right', labelWidth: '40%', inputWidth: '60%', type: 'password' },
+  { label: 'ยืนยันรหัสผ่าน :', fieldName: 'confirmpassword', align: 'right', labelWidth: '40%', inputWidth: '60%', type: 'password' },
 ]
-
 
 const K_CLEAR_FIELDS = {
   name: "",

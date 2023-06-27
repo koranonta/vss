@@ -10,7 +10,7 @@ import { commonStyles } from '../../theme/CommonStyles';
 
 const fields = [
   { label: 'ชื่อ :',      fieldName: 'name',     align: 'right', labelWidth: '30%', inputWidth: '70%' },
-  { label: 'รหัสผ่าน :',  fieldName: 'password', align: 'right', labelWidth: '30%', inputWidth: '70%' },
+  { label: 'รหัสผ่าน :',  fieldName: 'password', type:'password', align: 'right', labelWidth: '30%', inputWidth: '70%' },
   { label: 'อีเมล :',    fieldName: 'email',    align: 'right', labelWidth: '30%', inputWidth: '70%' },
   { label: 'เบอร์โทร :', fieldName: 'phone',   align: 'right', labelWidth: '30%', inputWidth: '70%' }
 ]
@@ -106,7 +106,7 @@ const UserDlg = (props) => {
                           <label htmlFor={elem.fieldName} style={{...commonStyles.inputLabel}}>{elem.label}</label>
                       </td>
                       <td width={elem.inputWidth} >
-                        <input type="text" 
+                        <input type={_.isEmpty(elem.type) ? "text" : elem.type} 
                            style={{width: '100%'}}
                            value={ _.isEmpty(buf) ? "" : fieldValue}
                            disabled={readOnly}
@@ -142,7 +142,7 @@ const UserDlg = (props) => {
 
            <div className={`mt-3 mb-3 ${classes.rightButtonPanel}`}>
              <button onClick={e => onOk(e)} disabled={false} name="submit" className={classes.pillButton} style={{width: '100px'}}>Save</button>
-             <button onClick={e => onCancel(e)} name="cancel" className={`mr-2 ${classes.pillButtonPale}`} style={{width: '100px'}}>Cancel</button>
+             <button onClick={e => onCancel(e)} name="cancel" className={`mr-2 ${classes.pillButton}`} style={{width: '100px'}}>Cancel</button>
 
            </div>
        

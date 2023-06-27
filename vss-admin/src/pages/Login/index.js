@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext } from 'react'
+import React, {useState, useEffect, useContext, useRef } from 'react'
 import {useNavigate} from "react-router-dom"
 import _ from 'lodash'
 import { Typography } from '@material-ui/core';
@@ -19,6 +19,8 @@ const Login = () => {
   const [openAlert, setOpenAlert] = useState(false)
   const [message, setMessage] = useState()
   //const [refMap, setRefMap] = useState(new Map())
+  const inputEls = useRef([]);
+
 
   const classes = AppStyles()
 
@@ -100,6 +102,10 @@ const Login = () => {
       return (<small>มีผู้ใช้แล้ว? <a onClick={e=>handleOption(LoginConstants.K_LOGIN)}>เข้าสู่ระบบ</a></small>)
   }
 
+  const afterAlertAction = () => {
+    console.log("In afterAlertAction")
+  }
+
   return ( 
     <>
      <Popup open={open} setOpen={setOpen} initialPos={initialPos}>
@@ -123,7 +129,8 @@ const Login = () => {
                         <label htmlFor={elem.fieldName} style={{...commonStyles.inputLabel}}>{elem.label}</label>
                       </td>
                       <td width={elem.inputWidth} >
-                        <input type="text" 
+                        <input type={_.isEmpty(elem.type) ? "text" : elem.type}
+                          ref={(el) => (inputEls.current[index] = el)}
                           autoComplete="off"
                           key={'input' + index}
                           style={{width: '100%'}}
@@ -158,6 +165,7 @@ const Login = () => {
        initialPos={{x: 0, y: -300}}  
        title="Alert"
        message={message}
+       afterAlertAction={afterAlertAction}
        />      
 
     </>

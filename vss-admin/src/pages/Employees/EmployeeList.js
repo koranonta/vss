@@ -254,14 +254,11 @@ const EmployeeList = ({ data, employeeTypes, genderTypes, itemsPerPage, setItems
                   <td style={{...commonStyles.tableRow, width: '10%'}}>{item.employeetypethainame}</td>
                   <td style={{...commonStyles.tableRow, width: '15%'}}>{item.accountid}</td>
                   <td style={{...commonStyles.tableRow, width: '15%'}}>{item.identificationcardid}</td>
-                  <td style={{...commonStyles.tableRow}}>{item.birthdate}</td>
-                  <td style={{...commonStyles.tableRow}}>{item.joindate}</td>
+                  <td style={{...commonStyles.tableRow}}>{item.birthdate === "0000-00-00" ? "" : item.birthdate}</td>
+                  <td style={{...commonStyles.tableRow}}>{item.joindate  === "0000-00-00" ? "" : item.joindate}</td>
                   <td style={{...commonStyles.tableRow, textAlign: 'right'}}>{Util.formatNumber(+item.salary)}</td>
                   <td style={{...commonStyles.tableRow, textAlign: 'center'}}>
-
-                    <img src={ AppConfig.K_AVATAR_DIR + (!_.isEmpty(item.image) ?`${item.image}` : 'no-image.png')} width="40" style={{borderRadius: '40px'}}/>
-
-                    
+                    <img src={ AppConfig.K_AVATAR_DIR + (!(_.isEmpty(item.image) || item.image === null) ?`${item.image}` : 'no-image.png')} width="40" style={{borderRadius: '40px'}}/>
                   </td >
                   <td style={{...commonStyles.tableRow, whiteSpace: 'nowrap'}}>
                     <IconButton onClick={() =>openPopup(item, 'edit')}>

@@ -9,6 +9,7 @@ import Users from './pages/Users';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login'
 import { AppContext } from './context/AppContext';
+import Header from './components/Header';
 
 //  Fonts
 import './assets/fonts/DIN_Alternate_Bold.ttf'
@@ -24,14 +25,14 @@ function App() {
       <div className="wrapper">
         <Navbar />
         <div className="main_container">
-        <Routes>
-          <Route path='/'          exact element={
-            _.isEmpty(login) ? <Login/> : <Dashboard/>
-          } />
-          <Route path='/employees' element={<Employees/>} />
-          <Route path='/payroll'   element={<Payroll/>} />
-          <Route path='/users'     element={<Users/>} />
-        </Routes>
+          <Routes>
+            <Route path='/'          exact element={
+              _.isEmpty(login) ? <Login/> : <Dashboard/>
+            } />
+            <Route path='/employees' element={<Employees/>} />
+            <Route path='/payroll'   element={<Payroll/>} />
+            <Route path='/users'     element={<Users/>} />
+          </Routes>
         </div>
       </div>
       </BrowserRouter>

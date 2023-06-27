@@ -7,951 +7,1120 @@
 	},
 	"item": [
 		{
-			"name": "property type group",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "www.lapassionbkk.com/app/vss/backend/api/propertytypegroups.php",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"propertytypegroups.php"
-					]
+			"name": "properties",
+			"item": [
+				{
+					"name": "get roles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/propertytypes.php?id=2",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"propertytypes.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "property type group",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "www.lapassionbkk.com/app/vss/backend/api/propertytypegroups.php",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"propertytypegroups.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "property types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/propertytypes.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"propertytypes.php"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "property types",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/propertytypes.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"propertytypes.php"
-					]
-				}
-			},
-			"response": []
+			]
 		},
 		{
 			"name": "users",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/users.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"users.php"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "user by id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/users.php?id=1",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"users.php"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
+			"item": [
+				{
+					"name": "user by identifier",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/users.php?identifier=moo",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"users.php"
+							],
+							"query": [
+								{
+									"key": "identifier",
+									"value": "moo"
+								}
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "user by identifier",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/users.php?identifier=moo",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"users.php"
-					],
-					"query": [
-						{
-							"key": "identifier",
-							"value": "moo"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "employees",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/employees.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"employees.php"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "employee by id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/employees.php?id=20",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"employees.php"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "20"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deduction rules",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/deductionrules.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"deductionrules.php"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deductions",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/deductions.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"deductions.php"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deduction items",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/deductionitems.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"deductionitems.php"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "addresses",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/addresses.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"addresses.php"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "address by id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/addresses.php?id=2",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"addresses.php"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "2"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get roles",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/propertytypes.php?id=2",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"propertytypes.php"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "2"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "add employee",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "employeetypeid",
-							"value": "4",
-							"type": "text"
-						},
-						{
-							"key": "accountid",
-							"value": "123-456-789-10",
-							"type": "text"
-						},
-						{
-							"key": "genderid",
-							"value": "10",
-							"type": "text"
-						},
-						{
-							"key": "firstname",
-							"value": "korawith",
-							"type": "text"
-						},
-						{
-							"key": "lastname",
-							"value": "nonta",
-							"type": "text"
-						},
-						{
-							"key": "identificationcardid",
-							"value": "9-2001-018795-29-6",
-							"type": "text"
-						},
-						{
-							"key": "birthdate",
-							"value": "2509-04-01",
-							"type": "text"
-						},
-						{
-							"key": "joindate",
-							"value": "2018-01-01",
-							"type": "text"
-						},
-						{
-							"key": "imgInput",
-							"type": "file",
-							"src": "/E:/KNN/la-passion-app/02-lap-api/assets/images/avatars/av03.png"
-						},
-						{
-							"key": "salary",
-							"value": "15000.00",
-							"type": "text"
-						},
-						{
-							"key": "positionsalary",
-							"value": "0.00",
-							"type": "text"
-						},
-						{
-							"key": "employeeid",
-							"value": "161",
-							"type": "text"
-						}
-					]
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/employees.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"employees.php"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "add employee with address",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "employeetypeid",
-							"value": "4",
-							"type": "text"
-						},
-						{
-							"key": "accountid",
-							"value": "123-456-789-10",
-							"type": "text"
-						},
-						{
-							"key": "genderid",
-							"value": "10",
-							"type": "text"
-						},
-						{
-							"key": "firstname",
-							"value": "kora",
-							"type": "text"
-						},
-						{
-							"key": "lastname",
-							"value": "nonta",
-							"type": "text"
-						},
-						{
-							"key": "identificationcardid",
-							"value": "9-2001-018795-29-6",
-							"type": "text"
-						},
-						{
-							"key": "birthdate",
-							"value": "2509-04-01",
-							"type": "text"
-						},
-						{
-							"key": "joindate",
-							"value": "2018-01-01",
-							"type": "text"
-						},
-						{
-							"key": "imgInput",
-							"type": "file",
-							"src": "/E:/KNN/la-passion-app/02-lap-api/assets/images/avatars/av03.png"
-						},
-						{
-							"key": "salary",
-							"value": "15000.00",
-							"type": "text"
-						},
-						{
-							"key": "positionsalary",
-							"value": "0.00",
-							"type": "text"
-						},
-						{
-							"key": "address",
-							"value": "75 Thongloh 19",
-							"type": "text"
-						},
-						{
-							"key": "street",
-							"value": "Suknumvit road",
-							"type": "text"
-						},
-						{
-							"key": "subdistrict",
-							"value": "Wattana",
-							"type": "text"
-						},
-						{
-							"key": "district",
-							"value": "Klongtei nuea",
-							"type": "text"
-						},
-						{
-							"key": "province",
-							"value": "Prakanong",
-							"type": "text"
-						},
-						{
-							"key": "city",
-							"value": "Bangkok",
-							"type": "text"
-						},
-						{
-							"key": "country",
-							"value": "USA",
-							"type": "text"
-						},
-						{
-							"key": "postcode",
-							"value": "10110",
-							"type": "text"
-						},
-						{
-							"key": "addressid",
-							"value": "-1",
-							"type": "text"
-						},
-						{
-							"key": "employeeid",
-							"value": "174",
-							"type": "text"
-						},
-						{
-							"key": "addressid",
-							"value": "9",
-							"type": "text"
+				{
+					"name": "users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/users.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"users.php"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/employees.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"employees.php"
-					]
+				{
+					"name": "user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/users.php?id=1",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"users.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
 			"name": "employee",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/employees.php?id=161",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"employees.php"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "161"
+			"item": [
+				{
+					"name": "employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/employees.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"employees.php"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "add payroll run",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"payrollrundate\": \"2023-06-01\"\r\n ,\"loginid\": -1\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrollruns.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"payrollruns.php"
-					]
+				{
+					"name": "employee by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/employees.php?id=20",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"employees.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "update payroll run",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"payrollrunid\":  1\r\n ,\"payrollrundate\": \"2023-05-01\"\r\n ,\"loginid\": -1\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "deduction",
+			"item": [
+				{
+					"name": "deduction items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/deductionitems.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"deductionitems.php"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrollruns.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"payrollruns.php"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "payroll run",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrollruns.php?id=1",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"payrollruns.php"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
+				{
+					"name": "deductions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/deductions.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"deductions.php"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "payroll run by date",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrollruns.php?runDate=2023-07-01",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"payrollruns.php"
-					],
-					"query": [
-						{
-							"key": "runDate",
-							"value": "2023-07-01"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "payroll run by id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrollruns.php?id=2",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"payrollruns.php"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "2"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "add payroll transaction",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"payrollrunid\": 2 \r\n ,\"employeeid\": 1\r\n ,\"deductionid\": 2\r\n ,\"loginid\": -1\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrolltransactions.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"payrolltransactions.php"
-					]
+				{
+					"name": "deduction rules",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/deductionrules.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"deductionrules.php"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "update payroll transaction",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"payrolltransactionid\": 1\r\n ,\"payrollrunid\": 3 \r\n ,\"employeeid\": 1\r\n ,\"deductionid\": 2\r\n ,\"loginid\": -1\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "address",
+			"item": [
+				{
+					"name": "addresses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/addresses.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"addresses.php"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrolltransactions.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"payrolltransactions.php"
-					]
+				{
+					"name": "address by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/addresses.php?id=2",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"addresses.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "payroll transaction",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrolltransactions.php?id=1",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"payrolltransactions.php"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
+			"name": "employee",
+			"item": [
+				{
+					"name": "add employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employeetypeid",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "accountid",
+									"value": "123-456-789-10",
+									"type": "text"
+								},
+								{
+									"key": "genderid",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "firstname",
+									"value": "korawith",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "nonta",
+									"type": "text"
+								},
+								{
+									"key": "identificationcardid",
+									"value": "9-2001-018795-29-6",
+									"type": "text"
+								},
+								{
+									"key": "birthdate",
+									"value": "2509-04-01",
+									"type": "text"
+								},
+								{
+									"key": "joindate",
+									"value": "2018-01-01",
+									"type": "text"
+								},
+								{
+									"key": "imgInput",
+									"type": "file",
+									"src": "/E:/KNN/la-passion-app/02-lap-api/assets/images/avatars/av03.png"
+								},
+								{
+									"key": "salary",
+									"value": "15000.00",
+									"type": "text"
+								},
+								{
+									"key": "positionsalary",
+									"value": "0.00",
+									"type": "text"
+								},
+								{
+									"key": "employeeid",
+									"value": "161",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/employees.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"employees.php"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "add payroll transaction item",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"payrolltransactionid\": 1 \r\n ,\"propertytypeid\": 18 \r\n ,\"amount\": 500.0\r\n ,\"loginid\": -1\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrolltransactionitems.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"payrolltransactionitems.php"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "update payroll transaction item",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"payrolltransactionitemid\": 1,\r\n  \"payrolltransactionid\": 1 \r\n ,\"propertytypeid\": 18 \r\n ,\"amount\": 700.0\r\n ,\"loginid\": -1\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "add employee with address",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "employeetypeid",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "accountid",
+									"value": "123-456-789-10",
+									"type": "text"
+								},
+								{
+									"key": "genderid",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "firstname",
+									"value": "kora",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "nonta",
+									"type": "text"
+								},
+								{
+									"key": "identificationcardid",
+									"value": "9-2001-018795-29-6",
+									"type": "text"
+								},
+								{
+									"key": "birthdate",
+									"value": "2509-04-01",
+									"type": "text"
+								},
+								{
+									"key": "joindate",
+									"value": "2018-01-01",
+									"type": "text"
+								},
+								{
+									"key": "imgInput",
+									"type": "file",
+									"src": "/E:/KNN/la-passion-app/02-lap-api/assets/images/avatars/av03.png"
+								},
+								{
+									"key": "salary",
+									"value": "15000.00",
+									"type": "text"
+								},
+								{
+									"key": "positionsalary",
+									"value": "0.00",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "75 Thongloh 19",
+									"type": "text"
+								},
+								{
+									"key": "street",
+									"value": "Suknumvit road",
+									"type": "text"
+								},
+								{
+									"key": "subdistrict",
+									"value": "Wattana",
+									"type": "text"
+								},
+								{
+									"key": "district",
+									"value": "Klongtei nuea",
+									"type": "text"
+								},
+								{
+									"key": "province",
+									"value": "Prakanong",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Bangkok",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "USA",
+									"type": "text"
+								},
+								{
+									"key": "postcode",
+									"value": "10110",
+									"type": "text"
+								},
+								{
+									"key": "addressid",
+									"value": "-1",
+									"type": "text"
+								},
+								{
+									"key": "employeeid",
+									"value": "174",
+									"type": "text"
+								},
+								{
+									"key": "addressid",
+									"value": "9",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/employees.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"employees.php"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrolltransactionitems.php",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"payrolltransactionitems.php"
-					]
+				{
+					"name": "employee",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/employees.php?id=161",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"employees.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "161"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "payroll transaction item",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrolltransactionitems.php?id=1",
-					"protocol": "https",
-					"host": [
-						"www",
-						"lapassionbkk",
-						"com"
-					],
-					"path": [
-						"app",
-						"vss",
-						"backend",
-						"api",
-						"payrolltransactionitems.php"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
+			"name": "payroll",
+			"item": [
+				{
+					"name": "payroll run by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrollruns.php?id=2",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"payrollruns.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
 						}
-					]
+					},
+					"response": []
+				},
+				{
+					"name": "add payroll run",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"payrollrundate\": \"2023-06-01\"\r\n ,\"loginid\": -1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrollruns.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"payrollruns.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update payroll run",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"payrollrunid\":  1\r\n ,\"payrollrundate\": \"2023-05-01\"\r\n ,\"loginid\": -1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrollruns.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"payrollruns.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "payroll run",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrollruns.php?id=1",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"payrollruns.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "payroll run by date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrollruns.php?runDate=2023-07-01",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"payrollruns.php"
+							],
+							"query": [
+								{
+									"key": "runDate",
+									"value": "2023-07-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add payroll transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"payrollrunid\": 3 \r\n ,\"employeeid\": 1\r\n ,\"deductionid\": 2\r\n ,\"loginid\": -1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrolltransactions.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"payrolltransactions.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update payroll transaction",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"payrolltransactionid\": 1\r\n ,\"payrollrunid\": 3 \r\n ,\"employeeid\": 1\r\n ,\"deductionid\": 2\r\n ,\"loginid\": -1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrolltransactions.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"payrolltransactions.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "payroll transaction",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrolltransactions.php?id=1",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"payrolltransactions.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add payroll transaction item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"payrolltransactionid\": 1 \r\n ,\"propertytypeid\": 18 \r\n ,\"amount\": 500.0\r\n ,\"loginid\": -1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrolltransactionitems.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"payrolltransactionitems.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update payroll transaction item",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"payrolltransactionitemid\": 1,\r\n  \"payrolltransactionid\": 1 \r\n ,\"propertytypeid\": 18 \r\n ,\"amount\": 700.0\r\n ,\"loginid\": -1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrolltransactionitems.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"payrolltransactionitems.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "payroll transaction item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrolltransactionitems.php?id=1",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"payrolltransactionitems.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "payroll transaction by run id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/payrolltransactionitems.php?runId=2",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"payrolltransactionitems.php"
+							],
+							"query": [
+								{
+									"key": "runId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"kora1\"\r\n   ,\"password\":   \"knn\"\r\n   ,\"action\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/authentication.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"authentication.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"vernoika\"\r\n   ,\"password\": \"ver\"\r\n   ,\"email\": \"veronika@gmail.com\"\r\n   ,\"phone\": \"084-639-7667\"\r\n   ,\"image\": null\r\n   ,\"roleid\": 3\r\n   ,\"loginid\": -1\r\n   ,\"action\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/authentication.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"authentication.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"vernoika\"\r\n   ,\"password\": \"ver\"\r\n   ,\"email\": \"veronika@gmail.com\"\r\n   ,\"phone\": \"084-639-7667\"\r\n   ,\"image\": null\r\n   ,\"roleid\": 3\r\n   ,\"loginid\": -1\r\n   ,\"action\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://www.lapassionbkk.com/app/vss/backend/api/authentication.php",
+							"protocol": "https",
+							"host": [
+								"www",
+								"lapassionbkk",
+								"com"
+							],
+							"path": [
+								"app",
+								"vss",
+								"backend",
+								"api",
+								"authentication.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

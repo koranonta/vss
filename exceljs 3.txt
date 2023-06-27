@@ -69,3 +69,26 @@ https://blog.devgenius.io/how-to-add-authentication-to-a-react-app-26865ecaca4b
 https://hygraph.com/blog/react-authentication
 https://blog.logrocket.com/adding-login-authentication-secure-react-apps/
 https://karnyong.medium.com/%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%99-react-%E0%B8%97%E0%B8%B3%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2-login-%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%81%E0%B9%83%E0%B8%8A%E0%B9%89-api-%E0%B8%87%E0%B9%88%E0%B8%B2%E0%B8%A2%E0%B8%AA%E0%B8%B8%E0%B8%94%E0%B9%86-e8f2fd753345
+
+
+https://blog.devgenius.io/how-to-add-authentication-to-a-react-app-26865ecaca4b
+
+
+Docker
+https://www.youtube.com/watch?v=WahJ91Nrgn0
+
+
+Dynamic form
+https://medium.com/curofy-engineering/dynamic-forms-with-react-js-d25d7c4f53d1
+https://www.pluralsight.com/guides/generating-dynamic-forms-from-json-in-react
+https://nainacodes.com/blog/create-form-from-json-schema
+https://www.newline.co/courses/beginners-guide-to-real-world-react/building-the-form-builder
+https://www.react-hook-form.com/api/usefieldarray/
+https://dev.to/franklin030601/dynamic-forms-with-react-hook-form-2ml8
+https://refine.dev/blog/dynamic-forms-in-react-hook-form/#using-the-usefieldsarray-hook
+https://www.syncfusion.com/blogs/post/create-dynamic-forms-in-react-using-react-hook-forms.aspx
+https://mattclaffey.medium.com/adding-react-refs-to-an-array-of-items-96e9a12ab40c
+
+
+
+https://www.developerdrive.com/holy-grail-layout-flexbox/

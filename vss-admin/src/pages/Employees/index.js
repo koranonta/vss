@@ -44,6 +44,7 @@ const Employees = () => {
         //  Load employee list
         const resp = await ApiService.getEmployees()        
         if (resp.status === Constants.K_HTTP_OK) {
+          console.log(resp.data.response.data)
           const empList = resp.data.response.data.map(item => {
             //  Add address information
             let addr = addrMap.has(+item.employeeid) 

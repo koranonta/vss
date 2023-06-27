@@ -332,7 +332,7 @@ const EmployeeDlg = (props) => {
            </div>
            <div className={`mt-3 mb-3 ${classes.rightButtonPanel}`}>
              <button onClick={e => onOk(e)} name="submit" className={classes.pillButton} style={{width: '100px'}}>Save</button>
-             <button onClick={e => onCancel(e)} name="cancel" className={`mr-2 ${classes.pillButtonPale}`} style={{width: '100px'}}>Cancel</button>
+             <button onClick={e => onCancel(e)} name="cancel" className={`mr-2 ${classes.pillButton}`} style={{width: '100px'}}>Cancel</button>
            </div>
        
          </form>    

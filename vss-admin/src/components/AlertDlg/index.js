@@ -34,12 +34,13 @@ const confirmButtonStyle = {
 };
 
 const AlertDlg = (props) => {
-  const { open, setOpen, width, title, message, initialPos} = props
+  const { open, setOpen, width, title, message, initialPos, afterAlertAction} = props
 
   const classes = AppStyles()
 
   const handleClose = () => {
     setOpen(false)
+    afterAlertAction()
   }
 
   return ( 
