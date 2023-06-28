@@ -31,9 +31,9 @@ const Login = () => {
   const initialPos = {x: 0, y: -300}
 
   const loginHandler = (user) => {
-    console.log("in Login Handler")
-    console.log("action", user.action)
-    console.log("user", user)
+    //console.log("in Login Handler")
+    //console.log("action", user.action)
+    //console.log("user", user)
     ApiService.authenticate(user)
     .then(resp => {
       if (resp.status === Constants.K_HTTP_OK) {

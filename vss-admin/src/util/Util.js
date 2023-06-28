@@ -70,12 +70,12 @@ const dupString = (str, num) => {
   return temp
 }
 
-const calculateDeduction = (salary, deductionDef, maximumvalue) => {
+const calculateDeduction = (salary, deductionDef, maximumvalue) => {  
   if (deductionDef === null) return 0.0
   if (deductionDef.endsWith("%")) {
     const numStr = deductionDef.substr(0, deductionDef.length - 1)
-    let res = salary * parseFloat(numStr) / 100.0
-    return (maximumvalue !== null && res > maximumvalue) ? maximumvalue : res;
+    let res = +salary * parseFloat(numStr) / 100.0
+    return (maximumvalue !== null && +res > +maximumvalue) ? +maximumvalue : +res;
   }
 }
 
@@ -102,6 +102,7 @@ const toThaiMode = (mode) => {
 
 const propertiesToThaiOptionSelector = (properties) => {
   const res = []
+  res.push ({ id: -1, title: ""})
   properties.forEach(item => 
     res.push ({ id: item.propertytypeid, title: item.propertytypethainame})
   )

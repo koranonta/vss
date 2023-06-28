@@ -52,9 +52,7 @@ const EmployeeList = ({ data, employeeTypes, genderTypes, itemsPerPage, setItems
     const classes = AppStyles()
 
     useEffect(()=> {
-
-      console.log(login)
-
+      //console.log(login)
       const empSet = new Set()
       const empTypeList = []
       data.forEach(item => {

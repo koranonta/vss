@@ -2,6 +2,11 @@ import React, {useState, useEffect } from 'react'
 import _ from 'lodash'
 import { Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import DatePicker from "react-datepicker";  
+  
+import "react-datepicker/dist/react-datepicker.css";  
+
+
 import Util from '../../util/Util';
 import AppStyles from '../../theme/AppStyles'
 import Popup from '../../components/Popup'
@@ -170,21 +175,23 @@ const EmployeeDlg = (props) => {
 
               <Grid item xs={6}>
               <label>วันเกิด</label>
+
               <input type="date" 
                            style={{width: '100%'}}
-                           placeholder="วันเกิด"
+                           placeholder="dd-mm-yyyy"
                            value={_.isEmpty(buf) ? "" : buf.birthdate }
                            autoCapitalize={false} 
                            onChange={handleChange} 
                            required                      
                            name="birthdate"
                            id="birthdate"/>
+
               </Grid>
               <Grid item xs={6}>
               <label>วันเริ่มงาน</label>
               <input type="date" 
                            style={{width: '100%'}}
-                           placeholder="วันเริ่มงาน"
+                           placeholder="dd-mm-yyyy"
                            value={_.isEmpty(buf) ? "" : buf.joindate }
                            autoCapitalize={false} 
                            onChange={handleChange} 
@@ -314,7 +321,7 @@ const EmployeeDlg = (props) => {
                            id="country"/> 
                       </Grid>
                       <Grid item xs={4}>
-                        <label>รหัสไปรษรีย์</label>
+                        <label>รหัสไปรษณีย์</label>
                         <input type="text" 
                            style={{width: '100%'}}
                            value={_.isEmpty(buf) ? "" : buf.postcode }

@@ -24,7 +24,7 @@ const Payroll = () => {
         let deductionList = []
         if (resp1.status === Constants.K_HTTP_OK)
           deductionList = resp1.data.response.data
-        //console.log(deductionList)
+        console.log(deductionList)
         setLoadingMessage("Loading employees...")
         const resp = await ApiService.getEmployees()
         //console.log(resp.data)
@@ -37,17 +37,20 @@ const Payroll = () => {
             totalDeduction = 0.0
             let deductionItems = []
             deductionList.forEach (item => {
-              if (+item.deductionid === deductionId) {
+              if (+item.deductionid === deductionId) {                
                 let amount = Util.calculateDeduction(elem.salary, item.calculationrule, +item.maximumvalue)
                 totalDeduction += amount
-                deductionItems.push (
-                  { propertytypeid: +item.propertytypeid,
+                deductionItems.push (  
+                  { 
+                    propertytypeid: +item.propertytypeid,
                     propertytypename: item.propertytypename,
                     propertytypethainame: item.propertytypethainame,
                     calculationrule: item.calculationrule,
+                    maximumvalue: item.maximumvalue,
                     amount              
-                  }                   
-                )}
+                  }               
+                )
+              }
             })
             amountToPay = elem.salary - totalDeduction
             let sal = (elem.salary * 100.0) / 100.0

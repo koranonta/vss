@@ -19,14 +19,16 @@ const PayrollDlg = (props) => {
 
   useEffect(() => {        
     if (!_.isEmpty(item)) {
+console.log(item)
+
       let deductItems = {}
       let tempDeduction = 0.0
-      //console.log(item.deductionItems)
+      console.log(item.deductionItems)
       item.deductionItems.forEach(elem => {
         deductItems = {...deductItems, 
           [elem.propertytypename.replaceAll(' ', '_')]: elem.amount}
         tempDeduction += +elem.amount
-        //console.log(item)
+        //console.log(+elem.amount)
       })
       //console.log(item.salary, tempDeduction)
       //console.log(deductItems)

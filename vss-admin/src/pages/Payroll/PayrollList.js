@@ -78,14 +78,15 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
       item.deductionItems.forEach (elem => {
         let amount = Util.calculateDeduction(item.salary, elem.calculationrule, +elem.maximumvalue)
         totalDeduction += amount        
-        deductionItems.push (
-          { propertytypeid: +elem.propertytypeid,
+        deductionItems.push ( 
+          { 
+            propertytypeid: +elem.propertytypeid,
             propertytypename: elem.propertytypename,
             propertytypethainame: elem.propertytypethainame,
             calculationrule: elem.calculationrule,
+            maximumvalue: elem.maximumvalue,
             amount              
-           }                   
-        )
+          })
       })
       const amountToPay = (+item.salary - totalDeduction)
       return { deductionItems, totalDeduction, amountToPay }
