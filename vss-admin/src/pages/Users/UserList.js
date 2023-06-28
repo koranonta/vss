@@ -219,7 +219,7 @@ const UserList = ({ data, roles, itemsPerPage, setItemsPerPage, startFrom }) => 
                   <td style={{...commonStyles.tableRow, width: '15%'}}>{item.phone}</td>
                   <td style={{...commonStyles.tableRow}}>{item.rolethainame}</td>
                   <td style={{...commonStyles.tableRow, textAlign: 'center'}}>
-                    <img src={ AppConfig.K_AVATAR_DIR + (!(_.isEmpty(item.image) || item.image === null) ?`${item.image}` : 'no-image.png')} width="40" style={{borderRadius: '40px'}}/>
+                    <img src={ AppConfig.K_AVATAR_DIR + (Util.hasImage(item.image) ?`${item.image}` : 'no-image.png')} width="40" style={{borderRadius: '40px'}}/>
                   </td >
                   <td style={{...commonStyles.tableRow, whiteSpace: 'nowrap'}}>
 

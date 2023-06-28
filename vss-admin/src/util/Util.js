@@ -125,6 +125,10 @@ const thaimonths = [
 
 const toThaiYear = (year) => year < 2500 ? year + 543 : year
 
+const hasImage = (image) => {
+  if (_.isEmpty(image) || image === null || image === "null") return false
+  return true  
+}
 
 const Util = {
   sortData,
@@ -147,6 +151,7 @@ const Util = {
   thaimonths,
   toThaiMode,
   propertiesToThaiOptionSelector,
+  hasImage,
 }
 
 export default Util

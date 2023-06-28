@@ -8,6 +8,7 @@ import _ from 'lodash';
 import { AppContext } from '../../context/AppContext';
 import AppConfig from '../../config/AppConfig';
 import Header from '../Header';
+import Util from '../../util/Util';
 const Navbar = () => {
   //const [curMenu, setCurMenu] = useState(sideBarData[0].title)
   const [sidebar, setSidebar] = useState(false)
@@ -59,7 +60,7 @@ const Navbar = () => {
                 <div className="team-profile">
                 { _.isEmpty(login) ? "" : 
                 <>
-                <img src={ AppConfig.K_AVATAR_DIR + (!(_.isEmpty(login.image) || login.image === null) ?`${login.image}` : 'no-image.png')} width="40" style={{borderRadius: '40px'}}/>
+                  <img src={ AppConfig.K_AVATAR_DIR + (Util.hasImage(login.image) ?`${login.image}` : 'no-image.png')} width="40" style={{borderRadius: '40px'}}/>
                 <div className="team-name">
                    {login.name}                  
                 </div>

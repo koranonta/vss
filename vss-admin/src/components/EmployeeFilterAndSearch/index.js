@@ -36,7 +36,7 @@ const EmployeeFilterAndSearch = ({ selEmpType, empTypes, handleEmpType, onSearch
 
         <button onClick={e => onSearch(e, searchText)} className={`ml-3 ${classes.pillButton}`} style={{width: '60px'}}>Go</button> 
         <button onClick={e => { setSearchText(""); onSearch(e, "") }}
-           className={`${classes.pillButtonPale}`} style={{width: '60px'}}>Clear</button>               
+           className={`${classes.pillButton}`} style={{width: '60px'}}>Clear</button>               
     </form>
   </div>    
   )

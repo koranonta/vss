@@ -258,7 +258,7 @@ const EmployeeList = ({ data, employeeTypes, genderTypes, itemsPerPage, setItems
                   <td style={{...commonStyles.tableRow}}>{item.joindate  === "0000-00-00" ? "" : item.joindate}</td>
                   <td style={{...commonStyles.tableRow, textAlign: 'right'}}>{Util.formatNumber(+item.salary)}</td>
                   <td style={{...commonStyles.tableRow, textAlign: 'center'}}>
-                    <img src={ AppConfig.K_AVATAR_DIR + (!(_.isEmpty(item.image) || item.image === null) ?`${item.image}` : 'no-image.png')} width="40" style={{borderRadius: '40px'}}/>
+                    <img src={ AppConfig.K_AVATAR_DIR + (Util.hasImage(item.image) ?`${item.image}` : 'no-image.png')} width="40" style={{borderRadius: '40px'}}/>
                   </td >
                   <td style={{...commonStyles.tableRow, whiteSpace: 'nowrap'}}>
                     <IconButton onClick={() =>openPopup(item, 'edit')}>
