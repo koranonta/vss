@@ -1,4 +1,5 @@
 import _ from "lodash"
+import moment from 'moment'
 
 const compare = (a, b) => {
   if (!isNaN(a) && !isNaN(b)) return parseInt (+a - +b)  
@@ -131,6 +132,8 @@ const hasImage = (image) => {
   return true  
 }
 
+const toDMY = (date) => moment(date,"YYYY-MM-DD").format("DD-MM-YYYY")
+
 const Util = {
   sortData,
   formatNumber,
@@ -153,6 +156,7 @@ const Util = {
   toThaiMode,
   propertiesToThaiOptionSelector,
   hasImage,
+  toDMY,
 }
 
 export default Util

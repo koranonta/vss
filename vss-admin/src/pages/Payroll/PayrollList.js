@@ -340,7 +340,7 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
                   <td style={{...commonStyles.tableRow, width: '20%'}}>{Util.concatName(item)}</td>
                   <td style={{...commonStyles.tableRow, width: '10%'}}>{item.employeetypethainame}</td>
                   <td style={{...commonStyles.tableRow, width: '15%'}}>{item.accountid}</td>
-                  <td style={{...commonStyles.tableRow, width: '15%'}}>{item.joindate  === "0000-00-00" ? "" : item.joindate}</td>
+                  <td style={{...commonStyles.tableRow, width: '15%'}}>{item.joindate  === "0000-00-00" ? "" :  Util.toDMY(item.joindate)}</td>
                   <td style={{...commonStyles.tableRow, textAlign: 'right'}}>{item.joindate  === "0000-00-00" ? "" : item.anciente + " ปี"}</td>
                   <td style={{...commonStyles.tableRow, textAlign: 'right'}}>{Util.formatNumber(item.salary)}</td>
                   <td style={{...commonStyles.tableRow, textAlign: 'right'}}>{Util.formatNumber(item.totalDeduction)}</td>
