@@ -32,6 +32,7 @@ const EmployeeDlg = (props) => {
   const [image, setImage] = useState()  
   const [buf, setBuf] = useState({})
   const [readOnly, setReadOnly] = useState()
+  const [birthdate, setBirthdate] = useState(_.isEmpty(item) ? null : item.birthdate)
 
   const classes = AppStyles()
 
@@ -73,6 +74,12 @@ const EmployeeDlg = (props) => {
     const temp = {...buf, [e.target.name]: e.target.value}
     setBuf(temp)
   }
+
+  //const handleDate = (date, fieldName) => {
+  //  console.log(date, fieldName)
+  //  const temp = {...buf, [fieldName]: date}
+  //  setSelectedDate(date)
+  //}
 
   return (
      <Popup open={open} setOpen={setOpen}>
@@ -176,6 +183,20 @@ const EmployeeDlg = (props) => {
               <Grid item xs={6}>
               <label>วันเกิด</label>
 
+{/*
+              <DatePicker selected={ birthdate }
+            onChange={ date=>setBirthdate(date) }
+            dateFormat="dd-MM-yyyy"
+            placeholder="dd-MM-yyyy"
+            //onChange={ date=>setSelectedDate(date)}
+            //minDate={ new Date()}
+            //maxDate={ new Date()}
+            //filterDate={ date=>date.getDay()!=6 && date.getDay()!=0}
+           // isClearable
+            showYearDropdown
+            name="birthdate"
+            />               
+*/}
               <input type="date" 
                            style={{width: '100%'}}
                            placeholder="dd-mm-yyyy"

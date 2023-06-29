@@ -75,7 +75,8 @@ const calculateDeduction = (salary, deductionDef, maximumvalue) => {
   if (deductionDef === null) return 0.0
   if (deductionDef.endsWith("%")) {
     const numStr = deductionDef.substr(0, deductionDef.length - 1)
-    let res = +salary * parseFloat(numStr) / 100.0
+    let res = +salary * (parseFloat(numStr) / 100.0)
+    console.log(salary, res)
     return (maximumvalue !== null && +res > +maximumvalue) ? +maximumvalue : +res;
   }
 }
