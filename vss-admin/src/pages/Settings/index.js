@@ -6,7 +6,7 @@ const Settings = () => {
   return (
     <>
     <PageHeader 
-         title="Application Settings Management"
+         title="การตั้งค่า"
        icon={<AiIcons.AiFillSetting />}
       />
     <div className="container px-1">

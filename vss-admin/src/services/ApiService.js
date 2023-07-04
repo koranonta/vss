@@ -37,6 +37,8 @@ const getPayrollTransactionItems = (id)   => api.get(`/payrolltransactionitems.p
 
 const authenticate               = (body) => api.post(`/authentication.php`, JSON.stringify(body))
 
+const getMembers                 = ()     => api.get(`/members.php`)
+
 const ApiService = {
   getEmployees,
   getEmployeeById,
@@ -56,6 +58,7 @@ const ApiService = {
   addPayrollTransactionItem,
   getPayrollTransactionItems,
   authenticate,
+  getMembers,
 }
 
 export default ApiService

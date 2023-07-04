@@ -7,6 +7,8 @@ import Employees from './pages/Employees';
 import Payroll from './pages/Payroll';
 import Users from './pages/Users';
 import Dashboard from './pages/Dashboard';
+import Cooperation from './pages/Cooperation'
+import Settings from './pages/Settings'
 import Login from './pages/Login'
 import { AppContext } from './context/AppContext';
 import Header from './components/Header';
@@ -15,6 +17,7 @@ import Header from './components/Header';
 import './assets/fonts/DIN_Alternate_Bold.ttf'
 import './assets/fonts/Hero_Light.otf'
 import './assets/fonts/Hero.otf'
+
 import Footer from './components/Footer';
 
 
@@ -31,7 +34,9 @@ function App() {
             } />
             <Route path='/employees' element={<Employees/>} />
             <Route path='/payroll'   element={<Payroll/>} />
-            <Route path='/users'     element={<Users/>} />
+            <Route path='/users'      element={<Users/>} />
+            <Route path='/cooperation' element={<Cooperation/>} />
+            <Route path='/settings'    element={<Settings/>} />
           </Routes>
         </div>
       </div>

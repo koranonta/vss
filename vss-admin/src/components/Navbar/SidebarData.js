@@ -27,7 +27,15 @@ export const sideBarData = [
   },
 
   {
-    title: 'Settings',
+    title: 'สหกรณ์',
+    path: '/cooperation',
+    icon: images.user_white,
+    activeIcon: images.user,    
+  },
+
+
+  {
+    title: 'การตั้งค่า',
     path: '/settings',
     icon: images.setting_white,
     activeIcon: images.setting,
