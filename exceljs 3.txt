@@ -92,3 +92,21 @@ https://mattclaffey.medium.com/adding-react-refs-to-an-array-of-items-96e9a12ab4
 
 
 https://www.developerdrive.com/holy-grail-layout-flexbox/
+
+
+
+Detect reload
+https://dev.to/eons/detect-page-refresh-tab-close-and-route-change-with-react-router-v5-3pd
+
+
+
+ReactJS Tree
+https://dev.to/taiwobello/how-to-create-a-react-tree-view-component-3ch2
+
+
+ReactJS format input
+https://codepen.io/s-yadav/pen/bpKNMa
+https://www.educba.com/react-format/
+
+https://blog.logrocket.com/implementing-react-input-mask-web-apps/
+https://github.com/sanniassin/react-input-mask

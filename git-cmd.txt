@@ -1,0 +1,67 @@
+git config --global user.name "kora"
+git config --global user.email "koranonta@gmail.com"
+
+git init
+
+git remote add origin https://github.com/koranonta/vss.git
+
+
+git add *
+git commit -m "Initial vss-db project"
+git push origin master
+
+
+git remote add origin https://github.com/koranonta/chvp-app.git
+
+git add *
+git commit -m "Initial chvp-app project"
+git push origin master
+
+
+git remote add origin https://github.com/koranonta/react-starter-app.git
+
+git add *
+git commit -m "Initial react-starter-app project"
+git push origin master
+
+
+git add *
+git commit -m "Initial code generator project"
+git push origin master
+
+
+git remote add origin https://github.com/koranonta/code-generator.git
+
+
+git remote show origin
+git status 
+
+3FC4-8564
+
+
+Create branch
+https://devconnected.com/create-git-branch/
+
+
+https://www.javatpoint.com/git-ignore
+
+
+Quick setup — if you’ve done this kind of thing before
+or	
+https://github.com/koranonta/vss.git
+Get started by creating a new file or uploading an existing file. We recommend every repository include a README, LICENSE, and .gitignore.
+
+…or create a new repository on the command line
+echo "# vss" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/koranonta/vss.git
+git push -u origin main
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/koranonta/vss.git
+git branch -M main
+git push -u origin main
+

@@ -116,7 +116,7 @@ console.log(item)
                        <input type="number" 
                          style={{textAlign: 'right'}}
                          value={ amtValue || ""}
-                         disabled={elem.calculationrule !== null}
+                         //disabled={elem.calculationrule !== null}
                          onChange={handleChange} 
                          autoComplete="off"
                          name={fieldName}
