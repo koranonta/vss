@@ -18,7 +18,7 @@ class Employees extends Db
     $query = "CALL spGetEmployees( ${employeeid} )";
     return $this->runQuery($query);
   }
-
+  
   function add( $employee )
   {
     try {

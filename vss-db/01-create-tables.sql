@@ -76,6 +76,7 @@ CREATE TABLE Employees (
   Image                VARCHAR(100) DEFAULT NULL,
   Salary               FLOAT        NOT NULL DEFAULT 0.0,
   PositionSalary       FLOAT        NOT NULL DEFAULT 0.0,
+  CoopMember           INT          DEFAULT NULL,
   DateCreated          DATETIME     NOT NULL,
   DateModified         DATETIME     NOT NULL,
   DateDeleted          DATETIME     DEFAULT NULL,
