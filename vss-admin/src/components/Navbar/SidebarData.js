@@ -27,12 +27,11 @@ export const sideBarData = [
   },
 
   {
-    title: 'สหกรณ์',
+    title: 'ออมทรัพย์',
     path: '/cooperation',
     icon: images.user_white,
     activeIcon: images.user,    
   },
-
 
   {
     title: 'การตั้งค่า',

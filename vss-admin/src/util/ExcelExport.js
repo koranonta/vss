@@ -25,8 +25,10 @@ const getSheet = (workbook, sheetName) => {
 const getColumnHeader = (emp) => {
   const columnHeader = []
   ReportConstants.K_COMMON_HEADER.forEach(item => columnHeader.push(item))
+  //try {
   emp.deductionItems.forEach(item => columnHeader.push(item.propertytypethainame))
   ReportConstants.K_COMMON_TRAILER.forEach(item => columnHeader.push(item))    
+  //} catch (e) {  console.log(emp) }
   return columnHeader
 }
 

@@ -33,7 +33,7 @@ const columns = [
   { label: 'จัดการ', sortKey: '', align: 'center', width:'10%' },
 ];
 
-const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFrom }) => {
+const PayrollList = ({ data, itemsPerPage, setItemsPerPage, startFrom }) => {
   const [sortByKey, setSortByKey] = useState('id')
   const [order, setOrder] = useState('asc')
   const [selItem, setSelItem] = useState()
@@ -46,6 +46,7 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
   const [selYear, setSelYear] = useState()
   const [showMain, setShowMain] = useState(true)
   const [runId, setRunId] = useState()
+  const [svData, setSvData] = useState()
 
   const { 
     slicedData, 
@@ -118,6 +119,7 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
                   ? { ...elem, ...getDeductionInfo(+elem.salary, deductionMap.get(+elem.employeeid))}
                   : { ...elem, ...initDeduction(elem) } 
                 )
+              setSvData(temp)  
               setFilteredData(temp)              
             }
           })
@@ -224,9 +226,9 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
       //console.log(selType)
       setSelEmpType(selType)
       if (selType === -1) 
-        setFilteredData(data)
+        setFilteredData(svData)
       else {
-        const copiedData = [...data];
+        const copiedData = [...svData];
         const filteredList = copiedData.filter( elem =>           
           +elem.employeetypeid === selType ? elem : null )
         //console.log(filteredList)
@@ -262,7 +264,7 @@ const PayrollList = ({ data, deductions, itemsPerPage, setItemsPerPage, startFro
       setShowMain(false)
     }
 
-    const onExcelExport = () => ExcelExport.run(filteredData, payrollDate)
+    const onExcelExport = () => ExcelExport.run(svData, payrollDate)
     
     const header = () => (
       !showMain  &&  
