@@ -1,0 +1,8 @@
+Install table
+Install PROC
+Populate data
+
+Change PHP database access credential and path
+
+Change React package.json base url
+Change Reacg App.js base route

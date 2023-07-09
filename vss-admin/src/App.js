@@ -24,7 +24,7 @@ import Footer from './components/Footer';
 function App() {
   const { login } = useContext(AppContext)
   return (
-      <BrowserRouter basename="/app/vss/admin">
+      <BrowserRouter basename="/payroll/admin">
       <div className="wrapper">
         <Navbar />
         <div className="main_container">

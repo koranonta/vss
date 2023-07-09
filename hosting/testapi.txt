@@ -1,0 +1,3 @@
+https://www.veeranat.com/payroll/backend/api/users.php
+https://www.veeranat.com/payroll/backend/api/employees.php
+https://www.veeranat.com/payroll/backend/api/propertytypes.php
