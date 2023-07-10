@@ -10,7 +10,6 @@ const Settings = () => {
        icon={<AiIcons.AiFillSetting />}
       />
     <div className="container px-1">
-        Settings UI
     </div>  
     </>
   );

@@ -25,14 +25,6 @@ export const sideBarData = [
     icon: images.user_white,
     activeIcon: images.user,    
   },
-
-  {
-    title: 'ออมทรัพย์',
-    path: '/cooperation',
-    icon: images.user_white,
-    activeIcon: images.user,    
-  },
-
   {
     title: 'การตั้งค่า',
     path: '/settings',
